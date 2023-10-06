@@ -1,16 +1,16 @@
 package app;
 
-public class EmpleadosVector {
+public class TelefonosVector {
     
     private Telefono[] empleados;
     private int totalElementos;
     
-    public EmpleadosVector() {
+    public TelefonosVector() {
         empleados = new Telefono[50];
         totalElementos = 0;
     }
     
-    public EmpleadosVector(int limite) {
+    public TelefonosVector(int limite) {
         empleados = new Telefono[limite];
         totalElementos = 0;
     }

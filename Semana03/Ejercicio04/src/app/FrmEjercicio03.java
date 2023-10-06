@@ -4,7 +4,7 @@ import javax.swing.DefaultListModel;
 
 public class FrmEjercicio03 extends javax.swing.JFrame {
 
-    EmpleadosVector empleados = new EmpleadosVector();
+    TelefonosVector empleados = new TelefonosVector();
     
     public FrmEjercicio03() {
         initComponents();
