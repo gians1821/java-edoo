@@ -2,36 +2,37 @@ package app;
 
 public class EmpleadosVector {
     
-    private Empleado[] empleados;
+    private Telefono[] empleados;
     private int totalElementos;
     
     public EmpleadosVector() {
-        empleados = new Empleado[50];
+        empleados = new Telefono[50];
         totalElementos = 0;
     }
     
     public EmpleadosVector(int limite) {
-        empleados = new Empleado[limite];
+        empleados = new Telefono[limite];
         totalElementos = 0;
     }
     
-    public void addEmpleado(Empleado empleado) {
+    public void addEmpleado(Telefono empleado) {
         if (totalElementos < empleados.length) {
             empleados[totalElementos] = empleado;
             totalElementos++;
         }
     }
     
-    public Empleado mostrarEmpleado(int index) {
+    public Telefono mostrarEmpleado(int index) {
         if (index != -1)
             for (int i = 0; i < totalElementos; i++)
                 if (empleados[index] == empleados[i]) return empleados[i];
         return null;
     }
     
-    private void sortByCodigo(Empleado[] v, int l, int r) {
+    private void sortByCodigo(Telefono[] v, int l, int r) {
         int i = l, j = r;
-        Empleado x, temporal;
+        Telefono x;
+        Telefono temporal;
         x = v[(l + r) / 2];
         do {
             while (v[i].getCodigo().compareToIgnoreCase(x.getCodigo()) < 0 && i < r) i++;
@@ -48,7 +49,7 @@ public class EmpleadosVector {
         if (l < j) sortByCodigo(v, l, j);
     }
     
-    private int buscarEmpleado(Empleado[] vector, int izq, int der, String codigoEmpleado) {
+    private int buscarEmpleado(Telefono[] vector, int izq, int der, String codigoEmpleado) {
         int central = (izq + der)/2;
         if (izq > der) 
             return -1;

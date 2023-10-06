@@ -1,12 +1,12 @@
 package app;
 
-public class Empleado {
+public class Telefono {
     
     String codigo;
     String nombre;
     double sueldo;
 
-    public Empleado(String codigo, String nombre, double sueldo) {
+    public Telefono(String codigo, String nombre, double sueldo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.sueldo = sueldo;

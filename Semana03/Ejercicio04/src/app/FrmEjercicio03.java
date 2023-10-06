@@ -119,7 +119,7 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         
         int index = empleados.buscarEmpleado(codigoBuscado);
         
-        Empleado empleado = empleados.mostrarEmpleado(index);
+        Telefono empleado = empleados.mostrarEmpleado(index);
         
         if (empleado != null) txtDatos.setText(empleado.toString());            
         else txtDatos.setText("Empleado no encontrado");
@@ -131,7 +131,7 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         double sueldo = Double.parseDouble(txtSueldo.getText());
         
-        Empleado empleado = new Empleado(codigo, nombre, sueldo);
+        Telefono empleado = new Telefono(codigo, nombre, sueldo);
         
         empleados.addEmpleado(empleado);
         
