@@ -2,11 +2,11 @@ package app;
 
 import javax.swing.DefaultListModel;
 
-public class FrmEjercicio03 extends javax.swing.JFrame {
+public class FrmEjercicio04 extends javax.swing.JFrame {
 
     TelefonosVector empleados = new TelefonosVector();
     
-    public FrmEjercicio03() {
+    public FrmEjercicio04() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
