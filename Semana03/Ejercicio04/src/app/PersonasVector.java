@@ -31,14 +31,18 @@ public class PersonasVector {
         return null;
     }
     
-    public void mostrarPersonas(DefaultTableModel modelo) {
-        String[] columnIdentifiers = {"Nombre", "Numero de Telefono"};
-        modelo.setColumnIdentifiers(columnIdentifiers);
+    public void mostrar(DefaultTableModel modelo) {
+        Object[][] datos = new Object[totalElementos][2];
+        String[] titulos = {"Nombre", "Numero de Telefono"};
+        
+        modelo.setColumnIdentifiers(titulos);
+        
         for (int i = 0; i < totalElementos; i++) {
-            String nombre = getPersona(i).getNombre();
-            String numeroTelefono = getPersona(i).getNumeroTelefono();
-            modelo.insertRow(i, new Object[]{nombre, numeroTelefono});
+            datos[i][0] = getPersona(i).getNombre();
+            datos[i][1] = getPersona(i).getNumeroTelefono();
         }
+        
+        modelo.setDataVector(datos, titulos);
     }
     
     private void sortByNombre(Persona[] v, int l, int r) {
@@ -60,21 +64,21 @@ public class PersonasVector {
         if (l < j) sortByNombre(v, l, j);
     }
     
-    private int buscarEmpleado(Persona[] vector, int izq, int der, String nombre) {
+    private int buscarPersona(Persona[] vector, int izq, int der, String nombre) {
         int central = (izq + der)/2;
         if (izq > der) 
             return -1;
         else if (nombre.compareTo(vector[central].getNombre()) == 0) 
             return central;
         else if (nombre.compareTo(vector[central].getNombre()) > 0) 
-            return buscarEmpleado(vector, central + 1, der, nombre);
+            return PersonasVector.this.buscarPersona(vector, central + 1, der, nombre);
         else
-            return buscarEmpleado(vector, izq, central - 1, nombre);
+            return PersonasVector.this.buscarPersona(vector, izq, central - 1, nombre);
     }
     
-    public int buscarEmpleado(String nombre) {
+    public int buscarPersona(String nombre) {
         sortByNombre(personas, 0, totalElementos - 1);
-        return buscarEmpleado(personas, 0, totalElementos - 1, nombre);
+        return PersonasVector.this.buscarPersona(personas, 0, totalElementos - 1, nombre);
     }
     
 }

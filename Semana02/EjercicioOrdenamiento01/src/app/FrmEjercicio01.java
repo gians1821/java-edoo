@@ -44,12 +44,10 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
 
         txtNumeroDeTelefono.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtNumeroDeTelefono.setPreferredSize(new java.awt.Dimension(130, 25));
-        txtNumeroDeTelefono.setRequestFocusEnabled(false);
         jPanel1.add(txtNumeroDeTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 130, -1));
 
         txtNombre.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtNombre.setPreferredSize(new java.awt.Dimension(130, 25));
-        txtNombre.setRequestFocusEnabled(false);
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
 
         btnOrdenar.setText("Ordenar");

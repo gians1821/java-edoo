@@ -1,5 +1,6 @@
 package app;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmEjercicio04 extends javax.swing.JFrame {
@@ -18,19 +19,18 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
-        txtCodigoBuscado = new javax.swing.JTextField();
-        lblCodigoBuscado = new javax.swing.JLabel();
+        txtNombreBuscado = new javax.swing.JTextField();
+        lblNombreBuscado = new javax.swing.JLabel();
         btnAñadir = new javax.swing.JButton();
-        lblDatos = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         lblNumeroTelefono = new javax.swing.JLabel();
         txtNumeroTelefono = new javax.swing.JTextField();
         lblTitle = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtDatos = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        lblTelefonoEncontrado = new javax.swing.JLabel();
+        txtTelefonoEncontrado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,16 +45,16 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, -1, -1));
+        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
 
-        txtCodigoBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtCodigoBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(txtCodigoBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, -1, -1));
+        txtNombreBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombreBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
+        bg.add(txtNombreBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
-        lblCodigoBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblCodigoBuscado.setText("Código del empleado:");
-        lblCodigoBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(lblCodigoBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
+        lblNombreBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNombreBuscado.setText("Nombre de la persona:");
+        lblNombreBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
+        bg.add(lblNombreBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 190, -1));
 
         btnAñadir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnAñadir.setText("Añadir");
@@ -65,11 +65,6 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
             }
         });
         bg.add(btnAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, -1));
-
-        lblDatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblDatos.setText("Datos del empleado:");
-        lblDatos.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(lblDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -94,33 +89,40 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
         lblTitle.setText("EMPLEADO");
         bg.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 280, -1));
 
-        txtDatos.setEditable(false);
-        txtDatos.setColumns(20);
-        txtDatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtDatos.setRows(5);
-        jScrollPane2.setViewportView(txtDatos);
-
-        bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, -1, -1));
-
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, 250));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, 170));
 
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 670));
+        lblTelefonoEncontrado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblTelefonoEncontrado.setText("Teléfono del empleado:");
+        lblTelefonoEncontrado.setPreferredSize(new java.awt.Dimension(150, 30));
+        bg.add(lblTelefonoEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 190, -1));
+
+        txtTelefonoEncontrado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTelefonoEncontrado.setPreferredSize(new java.awt.Dimension(150, 30));
+        bg.add(txtTelefonoEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-//        String codigoBuscado = txtCodigoBuscado.getText();
-//        
-//        int index = empleados.buscarEmpleado(codigoBuscado);
-//        
-////        Persona empleado = empleados.mostrarEmpleado(index);
-//        
-//        if (empleado != null) txtDatos.setText(empleado.toString());            
-//        else txtDatos.setText("Empleado no encontrado");
+        String nombreBuscado = txtNombreBuscado.getText();
+        
+        if (personas.getPersona(0) != null) {
+            int index = personas.buscarPersona(nombreBuscado);
+            Persona persona = personas.getPersona(index);
+            if (persona != null) txtTelefonoEncontrado.setText(persona.getNumeroTelefono());
+            else txtTelefonoEncontrado.setText("No existe");
+        } else {
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "No hay personas en el vector", 
+                    "Advertencia", 
+                    JOptionPane.WARNING_MESSAGE);
+        }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -132,7 +134,7 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
         
         personas.addPersona(persona);
         
-        personas.mostrarPersonas(modelo);
+        personas.mostrar(modelo);
         
         txtNombre.setText("");
         txtNumeroTelefono.setText("");
@@ -145,16 +147,15 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblCodigoBuscado;
-    private javax.swing.JLabel lblDatos;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombreBuscado;
     private javax.swing.JLabel lblNumeroTelefono;
+    private javax.swing.JLabel lblTelefonoEncontrado;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtCodigoBuscado;
-    private javax.swing.JTextArea txtDatos;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreBuscado;
     private javax.swing.JTextField txtNumeroTelefono;
+    private javax.swing.JTextField txtTelefonoEncontrado;
     // End of variables declaration//GEN-END:variables
 }
