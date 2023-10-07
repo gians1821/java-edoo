@@ -24,25 +24,21 @@ public class PersonasVector {
         }
     }
     
-    public Persona mostrarPersona(int index) {
+    public Persona getPersona(int index) {
         if (index != -1)
             for (int i = 0; i < totalElementos; i++)
                 if (personas[index] == personas[i]) return personas[i];
         return null;
     }
     
-    public DefaultTableModel mostrarPersonas(DefaultTableModel modelo) {
+    public void mostrarPersonas(DefaultTableModel modelo) {
         String[] columnIdentifiers = {"Nombre", "Numero de Telefono"};
         modelo.setColumnIdentifiers(columnIdentifiers);
         for (int i = 0; i < totalElementos; i++) {
-            modelo.removeRow(i);
+            String nombre = getPersona(i).getNombre();
+            String numeroTelefono = getPersona(i).getNumeroTelefono();
+            modelo.insertRow(i, new Object[]{nombre, numeroTelefono});
         }
-        for (int i = 0; i < totalElementos; i++) {            
-            String nombre = mostrarPersona(i).getNombre();
-            String numeroTelefono = mostrarPersona(i).getNumeroTelefono();
-            modelo.addRow(new Object[]{nombre, numeroTelefono});
-        }
-        return modelo;
     }
     
     private void sortByNombre(Persona[] v, int l, int r) {

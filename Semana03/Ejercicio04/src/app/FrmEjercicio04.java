@@ -132,11 +132,11 @@ public class FrmEjercicio04 extends javax.swing.JFrame {
         
         personas.addPersona(persona);
         
+        personas.mostrarPersonas(modelo);
+        
         txtNombre.setText("");
         txtNumeroTelefono.setText("");
     
-        personas.mostrarPersonas(modelo);
-        
         txtNombre.requestFocus();
     }//GEN-LAST:event_btnAñadirActionPerformed
 
