@@ -1,5 +1,6 @@
 package app;
 
+import java.awt.Color;
 import javax.swing.DefaultListModel;
 
 public class FrmEjercicio01 extends javax.swing.JFrame {
@@ -17,76 +18,117 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        lblNumero = new javax.swing.JLabel();
-        txtNumero = new javax.swing.JTextField();
+        tabbedPane = new javax.swing.JTabbedPane();
+        panelCrearEnteros = new javax.swing.JPanel();
+        txtEntero = new javax.swing.JTextField();
+        btnInsertarFinal = new javax.swing.JButton();
+        btnInsertarInicio = new javax.swing.JButton();
+        lblEntero = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaNumeros1 = new javax.swing.JList<>();
+        jSeparator1 = new javax.swing.JSeparator();
+        panelListarEnteros = new javax.swing.JPanel();
+        btnAñadir3 = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaNumeros = new javax.swing.JList<>();
-        txtNumBuscado = new javax.swing.JTextField();
-        lblNumBuscado = new javax.swing.JLabel();
-        btnAñadir = new javax.swing.JButton();
-        lblIndex = new javax.swing.JLabel();
-        txtIndex = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        bg.setBackground(new java.awt.Color(0, 0, 0));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNumero.setText("Número:");
-        lblNumero.setPreferredSize(new java.awt.Dimension(100, 30));
-        bg.add(lblNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        panelCrearEnteros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNumero.setPreferredSize(new java.awt.Dimension(100, 30));
-        bg.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+        txtEntero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEntero.setPreferredSize(new java.awt.Dimension(100, 30));
+        panelCrearEnteros.add(txtEntero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
+
+        btnInsertarFinal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnInsertarFinal.setText("Insertar Al FInal");
+        btnInsertarFinal.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnInsertarFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarFinalActionPerformed(evt);
+            }
+        });
+        panelCrearEnteros.add(btnInsertarFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
+
+        btnInsertarInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnInsertarInicio.setText("Insertar Al Inicio");
+        btnInsertarInicio.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnInsertarInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarInicioActionPerformed(evt);
+            }
+        });
+        panelCrearEnteros.add(btnInsertarInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+
+        lblEntero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEntero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEntero.setText("Entero:");
+        lblEntero.setPreferredSize(new java.awt.Dimension(100, 30));
+        panelCrearEnteros.add(lblEntero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+
+        txtEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEstado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtEstado.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        txtEstado.setPreferredSize(new java.awt.Dimension(130, 60));
+        panelCrearEnteros.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+
+        lblEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEstado.setText("Estado:");
+        lblEstado.setToolTipText("");
+        lblEstado.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblEstado.setPreferredSize(new java.awt.Dimension(130, 30));
+        panelCrearEnteros.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(120, 200));
+
+        listaNumeros1.setModel(modelo);
+        jScrollPane2.setViewportView(listaNumeros1);
+
+        panelCrearEnteros.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 40, 180));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        panelCrearEnteros.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 20, 220));
+
+        tabbedPane.addTab("CREAR ENTEROS", panelCrearEnteros);
+
+        btnAñadir3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAñadir3.setText("Modificar Elemento");
+        btnAñadir3.setPreferredSize(new java.awt.Dimension(170, 30));
+        btnAñadir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAñadir3ActionPerformed(evt);
+            }
+        });
+        panelListarEnteros.add(btnAñadir3);
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar");
-        btnBuscar.setPreferredSize(new java.awt.Dimension(100, 30));
+        btnBuscar.setPreferredSize(new java.awt.Dimension(170, 30));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
-        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+        panelListarEnteros.add(btnBuscar);
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(120, 200));
 
         listaNumeros.setModel(modelo);
         jScrollPane1.setViewportView(listaNumeros);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        panelListarEnteros.add(jScrollPane1);
 
-        txtNumBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNumBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(txtNumBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+        tabbedPane.addTab("LISTAR ENTEROS", panelListarEnteros);
 
-        lblNumBuscado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNumBuscado.setText("Número a buscar:");
-        lblNumBuscado.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(lblNumBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
-
-        btnAñadir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnAñadir.setText("Añadir");
-        btnAñadir.setPreferredSize(new java.awt.Dimension(100, 30));
-        btnAñadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAñadirActionPerformed(evt);
-            }
-        });
-        bg.add(btnAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
-
-        lblIndex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblIndex.setText("Índice:");
-        lblIndex.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(lblIndex, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
-
-        txtIndex.setEditable(false);
-        txtIndex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtIndex.setPreferredSize(new java.awt.Dimension(150, 30));
-        bg.add(txtIndex, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
+        bg.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 470));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 470));
 
@@ -94,36 +136,60 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int numero = Integer.parseInt(txtNumBuscado.getText());
-        
-        Entero entero = enteros.buscar(numero);
-        
-        txtIndex.setText(String.valueOf(entero.getEntero()));
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
-        int numero = Integer.parseInt(txtNumero.getText());
-        
-        enteros.insertarAlInicio(numero);
-        
-        txtNumero.setText("");
-        txtNumero.requestFocus();
-        
+    private void btnInsertarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarFinalActionPerformed
+        if (txtEntero.getText().compareTo("") == 0) {
+            txtEstado.setForeground(Color.red);
+            txtEstado.setText("<html><p>No se ha registrado ningún entero</p></html>");
+        } else {
+            int entero = Integer.parseInt(txtEntero.getText());
+            enteros.insertarAlFinal(entero);
+            txtEntero.setText("");
+            txtEntero.requestFocus();
+            txtEstado.setForeground(new Color(2, 112, 36));
+            txtEstado.setText("<html><p>Se ha registrado correctamente</p></html>");
+        }
         enteros.mostrar(modelo);
-    }//GEN-LAST:event_btnAñadirActionPerformed
+    }//GEN-LAST:event_btnInsertarFinalActionPerformed
+
+    private void btnInsertarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarInicioActionPerformed
+        if (txtEntero.getText().compareTo("") == 0) {
+            txtEstado.setForeground(Color.red);
+            txtEstado.setText("<html><p>No se ha registrado ningún entero</p></html>");
+        } else {
+            int entero = Integer.parseInt(txtEntero.getText());
+            enteros.insertarAlInicio(entero);
+            txtEntero.setText("");
+            txtEntero.requestFocus();
+            txtEstado.setForeground(new Color(2, 112, 36));
+            txtEstado.setText("<html><p>Se ha registrado correctamente</p></html>");
+        }
+        enteros.mostrar(modelo);
+    }//GEN-LAST:event_btnInsertarInicioActionPerformed
+
+    private void btnAñadir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadir3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAñadir3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JButton btnAñadir;
+    private javax.swing.JButton btnAñadir3;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnInsertarFinal;
+    private javax.swing.JButton btnInsertarInicio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblIndex;
-    private javax.swing.JLabel lblNumBuscado;
-    private javax.swing.JLabel lblNumero;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblEntero;
+    private javax.swing.JLabel lblEstado;
     private javax.swing.JList<String> listaNumeros;
-    private javax.swing.JTextField txtIndex;
-    private javax.swing.JTextField txtNumBuscado;
-    private javax.swing.JTextField txtNumero;
+    private javax.swing.JList<String> listaNumeros1;
+    private javax.swing.JPanel panelCrearEnteros;
+    private javax.swing.JPanel panelListarEnteros;
+    private javax.swing.JTabbedPane tabbedPane;
+    private javax.swing.JTextField txtEntero;
+    private javax.swing.JLabel txtEstado;
     // End of variables declaration//GEN-END:variables
 }
