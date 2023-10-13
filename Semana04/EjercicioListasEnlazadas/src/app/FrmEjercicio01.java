@@ -2,6 +2,7 @@ package app;
 
 import java.awt.Color;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class FrmEjercicio01 extends javax.swing.JFrame {
 
@@ -270,7 +271,17 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContarActionPerformed
-        // TODO add your handling code here:
+        String message = switch (enteros.contar()) {
+            case 0 -> "No hay enteros en la lista";
+            case 1 -> "Hay " + enteros.contar() + " entero en la lista";
+            default -> "Hay " + enteros.contar() + " enteros en la lista";
+        };
+        
+        JOptionPane.showMessageDialog(
+                null, 
+                message, 
+                "Información", 
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnContarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
