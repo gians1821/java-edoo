@@ -42,12 +42,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         btnOrdenar = new javax.swing.JButton();
         btnMostrarTodo = new javax.swing.JRadioButton();
         btnMostrarPares = new javax.swing.JRadioButton();
-        layeredPane = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
         lblEntero1 = new javax.swing.JLabel();
         txtEntero1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,23 +186,15 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         btnMostrarPares.setText("Mostrar pares");
         panelListarEnteros.add(btnMostrarPares, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
-        layeredPane.setLayout(new javax.swing.OverlayLayout(layeredPane));
-
         lblEntero1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblEntero1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEntero1.setText("Entero:");
         lblEntero1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel1.add(lblEntero1);
+        panelListarEnteros.add(lblEntero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
         txtEntero1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         txtEntero1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel1.add(txtEntero1);
-
-        layeredPane.add(jPanel1);
-        layeredPane.add(jPanel2);
-        layeredPane.add(jPanel3);
-
-        panelListarEnteros.add(layeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 400, 200));
+        panelListarEnteros.add(txtEntero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
 
         tabbedPane.addTab("LISTAR ENTEROS", panelListarEnteros);
 
@@ -218,7 +206,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
+        Entero entero = enteros.buscar(Integer.parseInt(txtEntero1.getText()));
+        System.out.println(entero);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnInsertarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarFinalActionPerformed
@@ -285,11 +274,12 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        System.out.println(txtEntero1.getText());
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
-        // TODO add your handling code here:
+        enteros.ordenar();
+        enteros.mostrar(modelo);
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -304,10 +294,6 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnMostrarTodo;
     private javax.swing.JButton btnOrdenar;
     private javax.swing.ButtonGroup btnsMostrar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblEntero0;
     private javax.swing.JLabel lblEntero1;
     private javax.swing.JLabel lblEstado;
