@@ -111,4 +111,9 @@ public class ListaEnteros {
         }
     }
     
+    public void reemplazar(int dato1, int dato2) {
+        Entero entero = buscar(dato1);
+        entero.setEntero(dato2);
+    }
+    
 }
