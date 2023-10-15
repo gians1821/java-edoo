@@ -179,11 +179,21 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         btnMostrarTodo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnMostrarTodo.setSelected(true);
         btnMostrarTodo.setText("Mostrar todos");
+        btnMostrarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodoActionPerformed(evt);
+            }
+        });
         panelListarEnteros.add(btnMostrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
 
         btnsMostrar.add(btnMostrarPares);
         btnMostrarPares.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnMostrarPares.setText("Mostrar pares");
+        btnMostrarPares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarParesActionPerformed(evt);
+            }
+        });
         panelListarEnteros.add(btnMostrarPares, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
         lblEntero1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
@@ -219,7 +229,6 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
                 int entero = Integer.parseInt(txtEntero0.getText());
                 enteros.insertarAlFinal(entero);
                 txtEntero0.setText("");
-                txtEntero0.requestFocus();
                 txtEstado.setForeground(new Color(2, 112, 36));
                 txtEstado.setText("<html><p>Se ha registrado correctamente</p></html>");
             } catch (NumberFormatException ex) {
@@ -227,6 +236,7 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
                 txtEstado.setText("<html><p>No se ha registrado ningún entero</p></html>");
             }
         }
+        txtEntero0.requestFocus();
         enteros.mostrar(modelo);
     }//GEN-LAST:event_btnInsertarFinalActionPerformed
 
@@ -281,6 +291,14 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         enteros.ordenar();
         enteros.mostrar(modelo);
     }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnMostrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodoActionPerformed
+        enteros.mostrar(modelo);
+    }//GEN-LAST:event_btnMostrarTodoActionPerformed
+
+    private void btnMostrarParesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarParesActionPerformed
+        enteros.mostrarPares(modelo);
+    }//GEN-LAST:event_btnMostrarParesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;

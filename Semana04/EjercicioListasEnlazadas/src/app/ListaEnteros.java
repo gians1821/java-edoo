@@ -102,4 +102,13 @@ public class ListaEnteros {
         }
     }
     
+    public void mostrarPares(DefaultListModel modelo) {
+        Entero p = L;
+        modelo.removeAllElements();
+        while (p != null) {
+            if (p.getEntero() % 2 == 0) modelo.addElement(p.getEntero());
+            p = p.getSgte();
+        }
+    }
+    
 }
