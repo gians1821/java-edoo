@@ -8,6 +8,14 @@ public class Producto {
     private int stock;
     private Producto sgte;
 
+    public Producto(Producto producto) {
+        codigo = producto.getCodigo();
+        nombre = producto.getNombre();
+        precio = producto.getPrecio();
+        stock = producto.getStock();
+        sgte = null;
+    }
+    
     public Producto(String codigo, String nombre, float precio, int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
