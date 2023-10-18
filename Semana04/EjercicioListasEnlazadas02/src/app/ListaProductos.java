@@ -39,7 +39,7 @@ public class ListaProductos {
         return c;
     }
     
-    public Producto buscar(String codigo) {
+    public Producto consultar(String codigo) {
         Producto p = L;
         while (p != null) {
             if (p.getCodigo().compareTo(codigo) == 0)
