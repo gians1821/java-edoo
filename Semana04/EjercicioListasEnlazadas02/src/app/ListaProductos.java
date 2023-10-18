@@ -88,4 +88,12 @@ public class ListaProductos {
         }
     }
     
+    public void modificar(String productoAntiguo, Producto nuevo) {
+        Producto antiguo = consultar(productoAntiguo);
+        antiguo.setCodigo(nuevo.getCodigo());
+        antiguo.setNombre(nuevo.getNombre());
+        antiguo.setPrecio(nuevo.getPrecio());
+        antiguo.setStock(nuevo.getStock());
+    }
+    
 }
