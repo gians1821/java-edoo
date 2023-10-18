@@ -18,19 +18,14 @@ public class ListaProductos {
         return L;
     }
     
-    public void insertarAlInicio(Producto nuevo) {
-        nuevo.setSgte(L);
-        L = nuevo;
-    }
-    
-    public void insertarAlFinal(Producto nuevo) {
+    public void agregar(Producto producto) {
         if (L == null) {
-            L = nuevo;
+            L = producto;
         } else {
             Producto p = L;
             while (p.getSgte() != null)
                 p = p.getSgte();
-            p.setSgte(nuevo);
+            p.setSgte(producto);
         }
     }
     
