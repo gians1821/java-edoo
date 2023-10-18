@@ -18,14 +18,12 @@ public class ListaProductos {
         return L;
     }
     
-    public void insertarAlInicio(int x) {
-        Producto nuevo = new Producto(x);
+    public void insertarAlInicio(Producto nuevo) {
         nuevo.setSgte(L);
         L = nuevo;
     }
     
-    public void insertarAlFinal(int x) {
-        Producto nuevo = new Producto(x);
+    public void insertarAlFinal(Producto nuevo) {
         if (L == null) {
             L = nuevo;
         } else {
@@ -46,18 +44,18 @@ public class ListaProductos {
         return c;
     }
     
-    public Producto buscar(int dato) {
+    public Producto buscar(String codigo) {
         Producto p = L;
         while (p != null) {
-            if (p.getEntero() == dato)
+            if (p.getCodigo().compareTo(codigo) == 0)
                 return p;
             p = p.getSgte();
         }
         return null;
     }
     
-    public boolean eliminar(int dato) {
-        if (L.getEntero() == dato) {
+    public boolean eliminar(String codigo) {
+        if (L.getCodigo().compareTo(codigo) == 0) {
             L = L.getSgte();
             return true;
         } else {
@@ -65,7 +63,7 @@ public class ListaProductos {
             Producto p;
             ant = L;
             p = L.getSgte();
-            while (p != null && p.getEntero() != dato) {
+            while (p != null && p.getCodigo().compareTo(codigo) != 0) {
                 ant = p;
                 p = p.getSgte();
             }
@@ -79,43 +77,20 @@ public class ListaProductos {
     public void ordenar() {
         Producto p;
         Producto q;
-        int aux;
+        Producto aux;
         p = L;
         while (p.getSgte() != null) {
             q = p.getSgte();
             while (q != null) {
-                if (p.getEntero() > q.getEntero()) {
-                    aux = p.getEntero();
-                    p.setEntero(q.getEntero());
-                    q.setEntero(aux);
+                if (p.getNombre().compareTo(q.getNombre()) > 0) {
+                    aux = p;
+                    p = new Producto(q);
+                    q = new Producto(aux);
                 }
                 q = q.getSgte();
             }
             p = p.getSgte();
         }
-    }
-    
-    public void mostrar(DefaultListModel modelo) {
-        Producto p = L;
-        modelo.removeAllElements();
-        while (p != null) {
-            modelo.addElement(p.getEntero());
-            p = p.getSgte();
-        }
-    }
-    
-    public void mostrarPares(DefaultListModel modelo) {
-        Producto p = L;
-        modelo.removeAllElements();
-        while (p != null) {
-            if (p.getEntero() % 2 == 0) modelo.addElement(p.getEntero());
-            p = p.getSgte();
-        }
-    }
-    
-    public void reemplazar(int dato1, int dato2) {
-        Producto entero = buscar(dato1);
-        entero.setEntero(dato2);
     }
     
 }
