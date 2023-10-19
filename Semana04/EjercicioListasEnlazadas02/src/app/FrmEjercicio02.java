@@ -30,16 +30,19 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         precio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        bg.setPreferredSize(new java.awt.Dimension(630, 470));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtStock.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        txtStock.setNextFocusableComponent(btnAgregar);
         txtStock.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         btnAgregar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnAgregar.setText("Agregar");
+        btnAgregar.setNextFocusableComponent(txtCodigo);
         btnAgregar.setPreferredSize(new java.awt.Dimension(150, 30));
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +71,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         bg.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        txtNombre.setNextFocusableComponent(txtPrecio);
         txtNombre.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
 
@@ -78,6 +82,8 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         bg.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         txtCodigo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        txtCodigo.setFocusCycleRoot(true);
+        txtCodigo.setNextFocusableComponent(txtNombre);
         txtCodigo.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
 
@@ -88,6 +94,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         bg.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
         txtPrecio.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        txtPrecio.setNextFocusableComponent(txtStock);
         txtPrecio.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
@@ -97,7 +104,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         precio.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
-        getContentPane().add(bg);
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
