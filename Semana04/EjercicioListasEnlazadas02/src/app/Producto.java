@@ -71,5 +71,10 @@ public class Producto {
     public void setSgte(Producto sgte) {
         this.sgte = sgte;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", stock=" + stock + ", sgte=" + sgte + '}';
+    }
     
 }
