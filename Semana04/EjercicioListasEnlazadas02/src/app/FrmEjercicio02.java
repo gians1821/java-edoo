@@ -29,11 +29,13 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         precio = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
+        scrollPane = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bg.setPreferredSize(new java.awt.Dimension(630, 470));
+        bg.setPreferredSize(new java.awt.Dimension(630, 550));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtStock.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
@@ -116,12 +118,29 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         });
         bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, -1));
 
+        jTable1.setModel(modelo        );
+        scrollPane.setViewportView(jTable1);
+
+        bg.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 470, 180));
+
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String codigo = txtCodigo.getText();
+        
+        Producto producto = productos.consultar(codigo);
+        
+        txtNombre.setText(producto.getNombre());
+        txtPrecio.setText(String.valueOf(producto.getPrecio()));
+        txtStock.setText(String.valueOf(producto.getStock()));
+        
+        txtCodigo.requestFocus();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String codigo = txtCodigo.getText();
         String nombre = txtNombre.getText();
         float precio = Float.parseFloat(txtPrecio.getText());
@@ -130,10 +149,13 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         Producto producto = new Producto(codigo, nombre, precio, stock);
         
         productos.agregar(producto);
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtStock.setText("");
+        
+        txtCodigo.requestFocus();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -142,8 +164,10 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel estado;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel precio;
+    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JLabel stock;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JLabel txtEstado;
