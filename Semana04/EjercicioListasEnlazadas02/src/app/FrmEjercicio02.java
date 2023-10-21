@@ -18,7 +18,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         txtStock = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         stock = new javax.swing.JLabel();
         txtEstado = new javax.swing.JLabel();
         estado = new javax.swing.JLabel();
@@ -28,6 +28,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         codigo = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         precio = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -36,20 +37,20 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtStock.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtStock.setNextFocusableComponent(btnAgregar);
+        txtStock.setNextFocusableComponent(btnBuscar);
         txtStock.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
-        btnAgregar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        btnAgregar.setText("Agregar");
-        btnAgregar.setNextFocusableComponent(txtCodigo);
-        btnAgregar.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.setNextFocusableComponent(txtCodigo);
+        btnBuscar.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
-        bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, -1));
+        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 120, -1));
 
         stock.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         stock.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -104,12 +105,23 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         precio.setPreferredSize(new java.awt.Dimension(100, 30));
         bg.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
+        btnAgregar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.setNextFocusableComponent(txtCodigo);
+        btnAgregar.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, -1));
+
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String codigo = txtCodigo.getText();
         String nombre = txtNombre.getText();
         float precio = Float.parseFloat(txtPrecio.getText());
@@ -118,11 +130,16 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         Producto producto = new Producto(codigo, nombre, precio, stock);
         
         productos.agregar(producto);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel estado;
     private javax.swing.JLabel nombre;
