@@ -31,7 +31,8 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         scrollPane = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAgregar1 = new javax.swing.JButton();
+        btnMostrarTodos = new javax.swing.JButton();
+        btnAgregar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,16 +125,27 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
 
         bg.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 470, 180));
 
-        btnAgregar1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        btnAgregar1.setText("Todos");
-        btnAgregar1.setNextFocusableComponent(txtCodigo);
-        btnAgregar1.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarTodos.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnMostrarTodos.setText("Todos");
+        btnMostrarTodos.setNextFocusableComponent(txtCodigo);
+        btnMostrarTodos.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar1ActionPerformed(evt);
+                btnMostrarTodosActionPerformed(evt);
             }
         });
-        bg.add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 120, -1));
+        bg.add(btnMostrarTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 120, -1));
+
+        btnAgregar2.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnAgregar2.setText("Eliminar");
+        btnAgregar2.setNextFocusableComponent(txtCodigo);
+        btnAgregar2.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnAgregar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregar2ActionPerformed(evt);
+            }
+        });
+        bg.add(btnAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 120, -1));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -170,15 +182,21 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         txtCodigo.requestFocus();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar1ActionPerformed
+    private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
         productos.mostrar(modelo);
-    }//GEN-LAST:event_btnAgregar1ActionPerformed
+    }//GEN-LAST:event_btnMostrarTodosActionPerformed
+
+    private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
+        String codigo = txtCodigo.getText();
+        productos.eliminar(codigo);
+    }//GEN-LAST:event_btnAgregar2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregar1;
+    private javax.swing.JButton btnAgregar2;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel estado;
     private javax.swing.JTable jTable1;
