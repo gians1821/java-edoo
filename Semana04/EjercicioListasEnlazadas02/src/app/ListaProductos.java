@@ -70,7 +70,27 @@ public class ListaProductos {
         }
     }
     
-    public void ordenar() {
+    private void remplazar(Producto p, Producto q) {
+        Producto aux = new Producto();
+        
+        aux.setCodigo(p.getCodigo());
+        aux.setNombre(p.getNombre());
+        aux.setPrecio(p.getPrecio());
+        aux.setStock(p.getStock());
+        
+        p.setCodigo(q.getCodigo());
+        p.setNombre(q.getNombre());
+        p.setPrecio(q.getPrecio());
+        p.setStock(q.getStock());
+        
+        q.setCodigo(aux.getCodigo());
+        q.setNombre(aux.getNombre());
+        q.setPrecio(aux.getPrecio());
+        q.setStock(aux.getStock());
+        
+    }
+    
+    public void ordenarPorNombre() {
         Producto p;
         Producto q;
         Producto aux;
@@ -79,9 +99,7 @@ public class ListaProductos {
             q = p.getSgte();
             while (q != null) {
                 if (p.getNombre().compareTo(q.getNombre()) > 0) {
-                    aux = p;
-                    p = new Producto(q);
-                    q = new Producto(aux);
+                    remplazar(p, q);
                 }
                 q = q.getSgte();
             }

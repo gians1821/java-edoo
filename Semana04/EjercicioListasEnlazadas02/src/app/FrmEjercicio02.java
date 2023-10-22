@@ -34,6 +34,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         btnMostrarTodos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        btnModificar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,6 +112,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         bg.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         btnAgregar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnAgregar.setMnemonic('A');
         btnAgregar.setText("Agregar");
         btnAgregar.setNextFocusableComponent(txtCodigo);
         btnAgregar.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -158,6 +160,17 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
             }
         });
         bg.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 120, -1));
+
+        btnModificar1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnModificar1.setText("Ordenar");
+        btnModificar1.setNextFocusableComponent(txtCodigo);
+        btnModificar1.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar1ActionPerformed(evt);
+            }
+        });
+        bg.add(btnModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 120, -1));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -214,12 +227,17 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         productos.modificar(codigo, nuevo);        
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+        productos.ordenarPorNombre();
+    }//GEN-LAST:event_btnModificar1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnModificar1;
     private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel estado;

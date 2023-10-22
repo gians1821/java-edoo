@@ -7,6 +7,9 @@ public class Producto {
     private float precio;
     private int stock;
     private Producto sgte;
+    
+    public Producto(){
+    }
 
     public Producto(Producto producto) {
         codigo = producto.getCodigo();
