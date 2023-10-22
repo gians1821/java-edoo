@@ -13,7 +13,11 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
     }
     
     public void actualizar() {
+<<<<<<< HEAD
         System.out.println("ESTE ES EL MAIN");
+=======
+        System.out.println("ESTE ES EL DEV");
+>>>>>>> dev
     }
 
     @SuppressWarnings("unchecked")
