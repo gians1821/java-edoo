@@ -115,7 +115,7 @@ public class ListaProductos {
         antiguo.setStock(nuevo.getStock());
     }
     
-    public void mostrar(DefaultTableModel modelo) {
+    public void mostrarTodos(DefaultTableModel modelo) {
         Object[][] datos = new Object[contar()][4];
         
         String[] titulos = {"Codigo", "Nombre", "Precio", "Stock"};
@@ -131,6 +131,41 @@ public class ListaProductos {
             datos[i][3] = producto.getStock();
             producto = producto.getSgte();
             i++;
+        }
+        
+        modelo.setDataVector(datos, titulos);
+    }
+    
+    private int contarSegunPrecio(float precio) {
+        Producto producto = L;
+        int cantidad = 0;
+        while (producto != null) {
+            if (producto.getPrecio() >= precio) {
+                cantidad++;
+            }
+            producto = producto.getSgte();
+        }
+        return cantidad;
+    }
+    
+    public void mostrarSegunPrecio(DefaultTableModel modelo, float precio) {
+        String[] titulos = {"Codigo", "Nombre", "Precio", "Stock"};
+        modelo.setColumnIdentifiers(titulos);
+        
+        Object[][] datos = new Object[contarSegunPrecio(precio)][4];
+        
+        int i = 0;
+        Producto producto = L;
+        
+        while (i < contar() && producto != null) {
+            if (producto.getPrecio() >= precio) {
+                datos[i][0] = producto.getCodigo();
+                datos[i][1] = producto.getNombre();
+                datos[i][2] = producto.getPrecio();
+                datos[i][3] = producto.getStock();
+                i++;
+            }
+            producto = producto.getSgte();
         }
         
         modelo.setDataVector(datos, titulos);

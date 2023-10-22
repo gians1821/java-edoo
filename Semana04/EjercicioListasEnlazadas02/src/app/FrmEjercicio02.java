@@ -30,11 +30,12 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         precio = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         scrollPane = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProductos = new javax.swing.JTable();
         btnMostrarTodos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        btnModificar1 = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        btnIngresarPrecio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,8 +124,8 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         });
         bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, -1));
 
-        jTable1.setModel(modelo        );
-        scrollPane.setViewportView(jTable1);
+        tblProductos.setModel(modelo        );
+        scrollPane.setViewportView(tblProductos);
 
         bg.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 470, 180));
 
@@ -137,7 +138,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
                 btnMostrarTodosActionPerformed(evt);
             }
         });
-        bg.add(btnMostrarTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 120, -1));
+        bg.add(btnMostrarTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 120, -1));
 
         btnEliminar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -148,7 +149,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 120, -1));
+        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 120, -1));
 
         btnModificar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
@@ -161,16 +162,27 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         });
         bg.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 120, -1));
 
-        btnModificar1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        btnModificar1.setText("Ordenar");
-        btnModificar1.setNextFocusableComponent(txtCodigo);
-        btnModificar1.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+        btnOrdenar.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnOrdenar.setText("Ordenar");
+        btnOrdenar.setNextFocusableComponent(txtCodigo);
+        btnOrdenar.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificar1ActionPerformed(evt);
+                btnOrdenarActionPerformed(evt);
             }
         });
-        bg.add(btnModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 120, -1));
+        bg.add(btnOrdenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 120, -1));
+
+        btnIngresarPrecio.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnIngresarPrecio.setText("Ingresar Precio");
+        btnIngresarPrecio.setNextFocusableComponent(txtCodigo);
+        btnIngresarPrecio.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnIngresarPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarPrecioActionPerformed(evt);
+            }
+        });
+        bg.add(btnIngresarPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, 30));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -208,7 +220,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
-        productos.mostrar(modelo);
+        productos.mostrarTodos(modelo);
     }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -227,25 +239,32 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         productos.modificar(codigo, nuevo);        
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         productos.ordenarPorNombre();
-    }//GEN-LAST:event_btnModificar1ActionPerformed
+    }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnIngresarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarPrecioActionPerformed
+        float precio = Float.parseFloat(txtPrecio.getText());
+        
+        productos.mostrarSegunPrecio(modelo, precio);
+    }//GEN-LAST:event_btnIngresarPrecioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnIngresarPrecio;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificar1;
     private javax.swing.JButton btnMostrarTodos;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel estado;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel precio;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JLabel stock;
+    private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JLabel txtEstado;
     private javax.swing.JTextField txtNombre;
