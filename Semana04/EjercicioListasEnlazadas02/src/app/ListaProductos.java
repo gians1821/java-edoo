@@ -1,6 +1,7 @@
 package app;
 
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 
 public class ListaProductos {
     
@@ -94,6 +95,27 @@ public class ListaProductos {
         antiguo.setNombre(nuevo.getNombre());
         antiguo.setPrecio(nuevo.getPrecio());
         antiguo.setStock(nuevo.getStock());
+    }
+    
+    public void mostrar(DefaultTableModel modelo) {
+        Object[][] datos = new Object[contar()][4];
+        
+        String[] titulos = {"Codigo", "Nombre", "Precio", "Stock"};
+        modelo.setColumnIdentifiers(titulos);
+        
+        int i = 0;
+        Producto producto = L;
+        
+        while (i < contar() && producto != null) {
+            datos[i][0] = producto.getCodigo();
+            datos[i][1] = producto.getNombre();
+            datos[i][2] = producto.getPrecio();
+            datos[i][3] = producto.getStock();
+            producto = producto.getSgte();
+            i++;
+        }
+        
+        modelo.setDataVector(datos, titulos);
     }
     
 }
