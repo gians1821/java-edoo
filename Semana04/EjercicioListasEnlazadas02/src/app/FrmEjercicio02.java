@@ -13,7 +13,6 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
     }
     
     public void actualizar() {
-        System.out.println("ESTE ES EL DEV");
     }
 
     @SuppressWarnings("unchecked")
