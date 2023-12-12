@@ -51,20 +51,15 @@ public class Alumno {
         return promedio;
     }
     public String obtenerClasificacion(){
-        double p=obtenerPromedio();
-        if(p>=16 && p<=20){
-            return "Bueno";  
-        }else{
-            if(p<=15 && p>=11){
-                return "Regular";
-            }else{
-                if(p>=6 && p<=10){
-                    return "Deficiente";
-                }else{
-                    return "Pesimo";
-                }
-            }
+        double p = obtenerPromedio();
+        if(p<6) {
+            return "Pesimo";
+        } else if (p<11) {
+            return "Deficiente";
+        } else if (p<16) {
+            return "Regular";
         }
+        return "Bueno";
     }
     
     
