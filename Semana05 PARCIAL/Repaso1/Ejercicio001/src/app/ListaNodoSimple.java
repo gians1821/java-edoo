@@ -96,6 +96,22 @@ public class ListaNodoSimple {
         return resultado;
     }
     
+    // PARTE D
+    
+    public void invertir() {
+        Nodo inicio = L;
+        int n = contar();
+        while (inicio != null) {
+            add(inicio.getValor(), 1);
+            inicio = inicio.getSgte();
+        }
+        Nodo q = getNodo(n+1);
+        while (q != null) {
+            delete(n+1);
+            q = q.getSgte();
+        }
+    }
+    
     public void mostrar() {
         Nodo p = L;
 //        System.out.println("mostrar-a");
