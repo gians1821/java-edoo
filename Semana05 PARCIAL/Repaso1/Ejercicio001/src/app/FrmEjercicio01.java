@@ -182,8 +182,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         txtEstado1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         txtEstado1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtEstado1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        txtEstado1.setPreferredSize(new java.awt.Dimension(130, 30));
-        panelListarEnteros.add(txtEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, 30));
+        txtEstado1.setPreferredSize(new java.awt.Dimension(130, 60));
+        panelListarEnteros.add(txtEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
         btnOrdenCreciente.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnOrdenCreciente.setText("¿Orden creciente?");
@@ -203,7 +203,7 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
                 btnInvertirListaActionPerformed(evt);
             }
         });
-        panelListarEnteros.add(btnInvertirLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 130, 30));
+        panelListarEnteros.add(btnInvertirLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 130, 30));
 
         btnEliminar1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnEliminar1.setText("Eliminar");
@@ -349,7 +349,13 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnOrdenCrecienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenCrecienteActionPerformed
-        // TODO add your handling code here:
+        if (LogicApp.esOrdenada(reales)) {
+            txtEstado1.setForeground(new Color(2, 112, 36));
+            txtEstado1.setText("<html><p>Sí, está ordenada crecientemente.</p></html>");
+        } else {
+            txtEstado1.setForeground(Color.red);
+            txtEstado1.setText("<html><p>No, no está ordenada crecientemente.</p></html>");
+        }
     }//GEN-LAST:event_btnOrdenCrecienteActionPerformed
 
     private void btnInvertirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvertirListaActionPerformed

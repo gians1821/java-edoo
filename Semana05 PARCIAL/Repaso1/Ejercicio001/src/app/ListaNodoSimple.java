@@ -114,7 +114,7 @@ public class ListaNodoSimple {
         while (resultado != false && i < n) {
             float primero = getNodo(i).getValor();
             float segundo = getNodo(i+1).getValor();
-            resultado = primero < segundo;
+            resultado = primero <= segundo;
             i++;
         }
         return resultado;

@@ -10,4 +10,8 @@ public class LogicApp {
         return reales.delete(pos);
     }
     
+    public static boolean esOrdenada(ListaNodoSimple reales) {
+        return reales.esOrdenada();
+    }
+    
 }
