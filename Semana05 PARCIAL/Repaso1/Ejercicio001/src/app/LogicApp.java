@@ -14,4 +14,9 @@ public class LogicApp {
         return reales.esOrdenada();
     }
     
+    public static boolean invertir(ListaNodoSimple reales) {
+        reales.invertir();
+        return true;
+    }
+    
 }

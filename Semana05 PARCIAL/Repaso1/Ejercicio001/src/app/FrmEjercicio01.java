@@ -359,7 +359,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOrdenCrecienteActionPerformed
 
     private void btnInvertirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvertirListaActionPerformed
-        // TODO add your handling code here:
+        LogicApp.invertir(reales);
+        reales.mostrar(modelo);
     }//GEN-LAST:event_btnInvertirListaActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
