@@ -6,4 +6,8 @@ public class LogicApp {
         return reales.add(valor, pos);
     }
     
+    public static boolean delete(ListaNodoSimple reales, int pos) {
+        return reales.delete(pos);
+    }
+    
 }

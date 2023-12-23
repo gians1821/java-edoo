@@ -23,6 +23,8 @@ public class ListaNodoSimple {
     }
     
     public Nodo getNodo(int pos) {
+        int n = contar();
+        if (!(pos >= 1 && pos <= n+1)) return null;
         int contador = 0;
         Nodo resultado = L;
         while (contador < pos - 1) {
@@ -32,12 +34,10 @@ public class ListaNodoSimple {
         return resultado;
     }
     
-    private int contar() {
+    public int contar() {
         int contador = 0;
         Nodo p = L;
-//        System.out.println("contar-a");
         while (p != null) {
-//            System.out.println("contar-b");
             contador++;
             p = p.getSgte();
         }
@@ -94,9 +94,7 @@ public class ListaNodoSimple {
     // PARTE B
     
     public boolean delete(int pos) {
-        if (!(pos <= contar())) {
-            return false;
-        }
+        if (!(pos > 0 && pos <= contar())) return false;
         if (pos == 1) {
             L = getNodo(pos+1);
         } else {

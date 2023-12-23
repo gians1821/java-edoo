@@ -357,7 +357,9 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInvertirListaActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
-        // TODO add your handling code here:
+        int pos = Integer.parseInt(txtPos2.getText());
+        System.out.println("vista-a");
+        if (LogicApp.delete(reales, pos)) reales.mostrar(modelo);
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     private void btnUltimosRealesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimosRealesActionPerformed
