@@ -231,8 +231,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         panelListarEnteros1.add(separator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 20, 220));
 
         btnUltimosReales.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        btnUltimosReales.setText("Obtener últimos reales");
-        btnUltimosReales.setPreferredSize(new java.awt.Dimension(180, 30));
+        btnUltimosReales.setText("Obtener N últimos reales");
+        btnUltimosReales.setPreferredSize(new java.awt.Dimension(200, 30));
         btnUltimosReales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUltimosRealesActionPerformed(evt);
@@ -370,7 +370,17 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     private void btnUltimosRealesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimosRealesActionPerformed
-        // TODO add your handling code here:
+        if (txtNReales.getText().compareTo("") != 0) {
+            int nUltimos = Integer.parseInt(txtNReales.getText());
+            float[] ultimosReales = LogicApp.getNUltimos(reales, nUltimos);
+            if (ultimosReales != null) {
+                String ultimosRealesS = "";
+                for (int i = 0; i < ultimosReales.length; i++) {
+                    ultimosRealesS += ultimosReales[i] + "\n";
+                }
+                JOptionPane.showMessageDialog(this, ultimosRealesS);
+            }    
+        }
     }//GEN-LAST:event_btnUltimosRealesActionPerformed
 
     private void btnEliminar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar2ActionPerformed

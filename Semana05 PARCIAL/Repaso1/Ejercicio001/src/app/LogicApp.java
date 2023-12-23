@@ -19,4 +19,9 @@ public class LogicApp {
         return true;
     }
     
+    public static float[] getNUltimos(ListaNodoSimple reales, int nUltimos) {
+        if (!(nUltimos >= 1 && nUltimos <= reales.contar())) return null;
+        return reales.getUltimosNElementos(nUltimos);
+    }
+            
 }
