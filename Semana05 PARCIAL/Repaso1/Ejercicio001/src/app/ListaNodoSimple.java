@@ -1,5 +1,7 @@
 package app;
 
+import javax.swing.DefaultListModel;
+
 public class ListaNodoSimple {
 
     Nodo L;
@@ -23,9 +25,7 @@ public class ListaNodoSimple {
     public Nodo getNodo(int pos) {
         int contador = 0;
         Nodo resultado = L;
-//        System.out.println("getnodo-a");
         while (contador < pos - 1) {
-//            System.out.println("getnodo-b");
             contador++;
             resultado = resultado.getSgte();
         }
@@ -44,25 +44,51 @@ public class ListaNodoSimple {
         return contador;
     }
     
+    public void insertarAlInicio(float x) {
+        Nodo nuevo = new Nodo(x);
+        nuevo.setSgte(L);
+        L = nuevo;
+    }
+    
+    public void insertarAlFinal(float x) {
+        Nodo nuevo = new Nodo(x);
+        if (L == null) {
+            L = nuevo;
+        } else {
+            Nodo p = L;
+            while (p.getSgte() != null)
+                p = p.getSgte();
+            p.setSgte(nuevo);
+        }
+    }
+    
+    public Nodo buscar(float valor) {
+        Nodo p = L;
+        while (p != null) {
+            if (p.getValor() == valor)
+                return p;
+            p = p.getSgte();
+        }
+        return null;
+    }
+    
     // PARTE A
     
-    public void add(float valor, int pos) {
+    public boolean add(float valor, int pos) {
         Nodo nuevo = new Nodo(valor);
         int n = contar();
-//        System.out.println("add-a");
-        if (pos <= n+1) {
-//            System.out.println("add-b");
-            if (pos == 1) {
-//                System.out.println("add-c1");
-                nuevo.setSgte(L);
-                L = nuevo;
-            } else {
-//                System.out.println("add-c2");
-                Nodo nodo = getNodo(pos-1);
-                nuevo.setSgte(nodo.getSgte());
-                nodo.setSgte(nuevo);
-            }
+        if (pos < 1 || pos > n+1) {
+            return false;
+        }       
+        if (pos == 1) {
+            nuevo.setSgte(L);
+            L = nuevo;
+        } else {
+            Nodo nodo = getNodo(pos-1);
+            nuevo.setSgte(nodo.getSgte());
+            nodo.setSgte(nuevo);
         }
+        return true;
     }
     
     // PARTE B
@@ -112,12 +138,26 @@ public class ListaNodoSimple {
         }
     }
     
-    public void mostrar() {
-        Nodo p = L;
-//        System.out.println("mostrar-a");
+    // PARTE E
+    
+    public float[] getUltimosNElementos(int n) {
+        int inicial = contar() - n + 1;
+        Nodo p = getNodo(inicial);
+        float ultimosNElementos[] = new float[n];
+        int contador = 0;
         while (p != null) {
-//            System.out.println("mostrar-b");
-            System.out.println(p.getValor());
+            ultimosNElementos[contador] = p.getValor();
+            contador++;
+            p = p.getSgte();
+        }
+        return ultimosNElementos;
+    }
+    
+    public void mostrar(DefaultListModel modelo) {
+        Nodo p = L;
+        modelo.removeAllElements();
+        while (p != null) {
+            modelo.addElement(p.getValor());
             p = p.getSgte();
         }
     }
