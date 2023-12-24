@@ -183,6 +183,19 @@ public class ListaNodoSimple {
         return true;
     }
     
+    // PARTE H
+    
+    private float sumar(Nodo a, Nodo b) {
+        if (b == null) return a.getValor();
+        else return a.getValor() + sumar(b, b.getSgte());
+    }
+    
+    public float sumar() {
+        Nodo p = L;
+        if (p == null) return 0;
+        else return sumar(p, p.getSgte());
+    }
+    
     public void mostrar(DefaultListModel modelo) {
         Nodo p = L;
         modelo.removeAllElements();

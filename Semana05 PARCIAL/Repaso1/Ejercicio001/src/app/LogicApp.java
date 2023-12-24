@@ -27,5 +27,9 @@ public class LogicApp {
     public static boolean delete(ListaNodoSimple reales, float valor) {
         return reales.delete(valor);
     }
+    
+    public static float sumar(ListaNodoSimple reales) {
+        return reales.sumar();
+    }
             
 }

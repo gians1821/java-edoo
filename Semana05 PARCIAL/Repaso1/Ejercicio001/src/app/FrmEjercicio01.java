@@ -391,7 +391,7 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminar2ActionPerformed
 
     private void btnObtenerSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerSumaActionPerformed
-        // TODO add your handling code here:
+        txtSuma.setText(String.valueOf(LogicApp.sumar(reales)));
     }//GEN-LAST:event_btnObtenerSumaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
