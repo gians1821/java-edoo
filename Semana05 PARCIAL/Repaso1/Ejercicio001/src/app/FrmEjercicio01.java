@@ -384,7 +384,10 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUltimosRealesActionPerformed
 
     private void btnEliminar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar2ActionPerformed
-        // TODO add your handling code here:
+        if (!(txtReal2.getText().compareTo("") == 0)) {
+            float valor = Float.parseFloat(txtReal2.getText());
+            if (LogicApp.delete(reales, valor)) reales.mostrar(modelo);    
+        }
     }//GEN-LAST:event_btnEliminar2ActionPerformed
 
     private void btnObtenerSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerSumaActionPerformed

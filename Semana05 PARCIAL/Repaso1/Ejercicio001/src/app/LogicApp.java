@@ -23,5 +23,9 @@ public class LogicApp {
         if (!(nUltimos >= 1 && nUltimos <= reales.contar())) return null;
         return reales.getUltimosNElementos(nUltimos);
     }
+    
+    public static boolean delete(ListaNodoSimple reales, float valor) {
+        return reales.delete(valor);
+    }
             
 }

@@ -151,6 +151,22 @@ public class ListaNodoSimple {
         return ultimosNElementos;
     }
     
+    // PARTE F
+    
+    public boolean delete(float valor) {
+        Nodo q = null, p = L;
+        while (p != null) {
+            if (p == L)
+                if (p.getValor() == valor) L = p.getSgte();
+                else q = p;
+            else
+                if (p.getValor() == valor) q.setSgte(p.getSgte());
+                else q = q.getSgte();
+            p = p.getSgte();
+        }
+        return true;
+    }
+    
     public void mostrar(DefaultListModel modelo) {
         Nodo p = L;
         modelo.removeAllElements();
