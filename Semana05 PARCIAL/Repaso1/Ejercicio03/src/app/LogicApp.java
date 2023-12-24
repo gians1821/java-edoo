@@ -40,8 +40,12 @@ public class LogicApp {
         return lista.delete(nombre);
     }
     
-    public static void ordernarCreciente(ListaCursos lista ){
-        lista.ordenar();
+    public static void ordernarCreciente(ListaCursos lista){
+        if (lista.contar() > 0) lista.ordenar();        
+    }
+    
+    public static Nodo getNodo(ListaCursos lista, String codigo) {
+        return lista.buscar(codigo);
     }
     
 }

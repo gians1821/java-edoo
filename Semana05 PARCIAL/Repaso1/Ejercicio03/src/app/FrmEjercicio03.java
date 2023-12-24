@@ -1,6 +1,8 @@
 package app;
 
 import java.awt.Color;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -8,10 +10,14 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
 
     ListaCursos lista = new ListaCursos();
     DefaultListModel modelo = new DefaultListModel();
+    DefaultComboBoxModel modeloCarreras = new DefaultComboBoxModel();
     
     public FrmEjercicio03() {
         initComponents();
         this.setLocationRelativeTo(null);
+        for (String carrera : ListaCarreras.carreras) {
+            modeloCarreras.addElement(carrera);            
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -23,7 +29,7 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         tabbedPane = new javax.swing.JTabbedPane();
         panelCrearEnteros = new javax.swing.JPanel();
         txtCodigo = new javax.swing.JTextField();
-        btnInsertarFinal = new javax.swing.JButton();
+        btnAñadirCursos = new javax.swing.JButton();
         btnInsertarInicio = new javax.swing.JButton();
         lblCodigo = new javax.swing.JLabel();
         txtEstado = new javax.swing.JLabel();
@@ -37,6 +43,9 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         txtCreditos = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
+        lblCodigo3 = new javax.swing.JLabel();
+        combo1 = new javax.swing.JComboBox<>();
+        btnInsertarFinal = new javax.swing.JButton();
         panelListarEnteros = new javax.swing.JPanel();
         scrollPane2 = new javax.swing.JScrollPane();
         listaNumeros2 = new javax.swing.JList<>();
@@ -48,8 +57,8 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         txtCodigo1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnMostrar = new javax.swing.JButton();
-        txtCarrera = new javax.swing.JTextField();
         lblCarrera = new javax.swing.JLabel();
+        combo2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,18 +71,18 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         panelCrearEnteros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCodigo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtCodigo.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+        txtCodigo.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelCrearEnteros.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        btnInsertarFinal.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        btnInsertarFinal.setText("Insertar Al FInal");
-        btnInsertarFinal.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnInsertarFinal.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadirCursos.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnAñadirCursos.setText("Añadir lista de cursos a la carrera");
+        btnAñadirCursos.setPreferredSize(new java.awt.Dimension(250, 30));
+        btnAñadirCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarFinalActionPerformed(evt);
+                btnAñadirCursosActionPerformed(evt);
             }
         });
-        panelCrearEnteros.add(btnInsertarFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        panelCrearEnteros.add(btnAñadirCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         btnInsertarInicio.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         btnInsertarInicio.setText("Insertar Al Inicio");
@@ -83,19 +92,19 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
                 btnInsertarInicioActionPerformed(evt);
             }
         });
-        panelCrearEnteros.add(btnInsertarInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
+        panelCrearEnteros.add(btnInsertarInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         lblCodigo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblCodigo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCodigo.setText("Código:");
         lblCodigo.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        panelCrearEnteros.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         txtEstado.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         txtEstado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtEstado.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         txtEstado.setPreferredSize(new java.awt.Dimension(130, 60));
-        panelCrearEnteros.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
+        panelCrearEnteros.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
 
         lblEstado.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -103,51 +112,71 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         lblEstado.setToolTipText("");
         lblEstado.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lblEstado.setPreferredSize(new java.awt.Dimension(130, 30));
-        panelCrearEnteros.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        panelCrearEnteros.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
 
-        scrollPane1.setPreferredSize(new java.awt.Dimension(500, 160));
+        scrollPane1.setPreferredSize(new java.awt.Dimension(500, 100));
 
         listaNumeros1.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         listaNumeros1.setModel(modelo);
         scrollPane1.setViewportView(listaNumeros1);
 
-        panelCrearEnteros.add(scrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        panelCrearEnteros.add(scrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         separator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         separator1.setPreferredSize(new java.awt.Dimension(3, 150));
-        panelCrearEnteros.add(separator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 20, -1));
+        panelCrearEnteros.add(separator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 20, -1));
 
         lblCiclo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblCiclo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCiclo.setText("Ciclo:");
         lblCiclo.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(lblCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        panelCrearEnteros.add(lblCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         txtCiclo.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtCiclo.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(txtCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        txtCiclo.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelCrearEnteros.add(txtCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
 
         lblCreditos.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblCreditos.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCreditos.setText("Créditos:");
         lblCreditos.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(lblCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        panelCrearEnteros.add(lblCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         txtCreditos.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtCreditos.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(txtCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        txtCreditos.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelCrearEnteros.add(txtCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNombre.setText("Nombre:");
         lblNombre.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        panelCrearEnteros.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtNombre.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelCrearEnteros.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        txtNombre.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelCrearEnteros.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
-        tabbedPane.addTab("CREAR PELÍCULAS", panelCrearEnteros);
+        lblCodigo3.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        lblCodigo3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCodigo3.setText("Carrera:");
+        lblCodigo3.setPreferredSize(new java.awt.Dimension(100, 30));
+        panelCrearEnteros.add(lblCodigo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        combo1.setModel(modeloCarreras);
+        combo1.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelCrearEnteros.add(combo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
+
+        btnInsertarFinal.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
+        btnInsertarFinal.setText("Insertar Al FInal");
+        btnInsertarFinal.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnInsertarFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarFinalActionPerformed(evt);
+            }
+        });
+        panelCrearEnteros.add(btnInsertarFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+
+        tabbedPane.addTab("CREAR CURSO", panelCrearEnteros);
 
         panelListarEnteros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -219,15 +248,15 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         });
         panelListarEnteros.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, 30));
 
-        txtCarrera.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
-        txtCarrera.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelListarEnteros.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, 30));
-
         lblCarrera.setFont(new java.awt.Font("FreeSans", 0, 14)); // NOI18N
         lblCarrera.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCarrera.setText("Carrera:");
         lblCarrera.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelListarEnteros.add(lblCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, 30));
+        panelListarEnteros.add(lblCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 30));
+
+        combo2.setModel(modeloCarreras);
+        combo2.setPreferredSize(new java.awt.Dimension(170, 30));
+        panelListarEnteros.add(combo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, 30));
 
         tabbedPane.addTab("OPCIONES A", panelListarEnteros);
 
@@ -240,7 +269,7 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         LogicApp.ordernarCreciente(lista);
-        lista.mostrar(modelo);
+        lista.mostrar(modelo);            
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnInsertarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarInicioActionPerformed
@@ -276,6 +305,32 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         lista.mostrar(modelo);
     }//GEN-LAST:event_btnInsertarInicioActionPerformed
 
+    private void btnAñadirCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirCursosActionPerformed
+        ListaCarreras.addCarrera(lista, (String) combo1.getSelectedItem());
+    }//GEN-LAST:event_btnAñadirCursosActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String codigo = txtCodigo2.getText();
+        if (LogicApp.delete(lista, codigo)) lista.mostrar(modelo);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if (!(txtCodigo1.getText().compareTo("") == 0)) {
+            String codigo = txtCodigo1.getText();
+            if (LogicApp.getNodo(lista, codigo) != null) {
+                String curso = LogicApp.getNodo(lista, codigo).getValor().toString();
+                JOptionPane.showMessageDialog(null, curso);
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        String carreraNombre = combo2.getSelectedItem().toString();
+        ListaCursos carrera = ListaCarreras.getCarrera(carreraNombre);
+        lista = carrera;
+        lista.mostrar(modelo);
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
     private void btnInsertarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarFinalActionPerformed
         if (txtCodigo.getText().compareTo("") == 0 &&
             txtNombre.getText().compareTo("") == 0 &&
@@ -309,21 +364,9 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         lista.mostrar(modelo);
     }//GEN-LAST:event_btnInsertarFinalActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int pos = Integer.parseInt(txtCodigo2.getText());
-        if (LogicApp.delete(lista, pos)) lista.mostrar(modelo);
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        
-    }//GEN-LAST:event_btnMostrarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JButton btnAñadirCursos;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertarFinal;
@@ -331,11 +374,14 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnOrdenar;
     private javax.swing.ButtonGroup btnsMostrar;
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> combo2;
     private javax.swing.JLabel lblCarrera;
     private javax.swing.JLabel lblCiclo;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblCodigo1;
     private javax.swing.JLabel lblCodigo2;
+    private javax.swing.JLabel lblCodigo3;
     private javax.swing.JLabel lblCreditos;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblNombre;
@@ -347,7 +393,6 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPane2;
     private javax.swing.JSeparator separator1;
     private javax.swing.JTabbedPane tabbedPane;
-    private javax.swing.JTextField txtCarrera;
     private javax.swing.JTextField txtCiclo;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigo1;
