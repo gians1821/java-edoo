@@ -188,7 +188,8 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
-
+        LogicApp.ordernarCreciente(peliculas);
+        peliculas.mostrar(modelo);
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnInsertarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarInicioActionPerformed

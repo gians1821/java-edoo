@@ -72,8 +72,6 @@ public class ListaPeliculas {
         return null;
     }
     
-    // PARTE A
-    
     public boolean add(Pelicula valor, int pos) {
         Nodo nuevo = new Nodo(valor);
         int n = contar();
@@ -89,8 +87,6 @@ public class ListaPeliculas {
         return true;
     }
     
-    // PARTE B
-    
     public boolean delete(int pos) {
         if (!(pos > 0 && pos <= contar())) return false;
         if (pos == 1) {
@@ -102,8 +98,6 @@ public class ListaPeliculas {
         }
         return true;
     }
-    
-    // PARTE C
     
     public boolean esOrdenada() {
         boolean resultado = true;
@@ -117,8 +111,6 @@ public class ListaPeliculas {
         }
         return resultado;
     }
-    
-    // PARTE D
     
     public void invertir() {
         Nodo inicio = L;
@@ -134,8 +126,6 @@ public class ListaPeliculas {
         }
     }
     
-    // PARTE E
-    
     public Pelicula[] getUltimosNElementos(int n) {
         int inicial = contar() - n + 1;
         Nodo p = getNodo(inicial);
@@ -148,8 +138,6 @@ public class ListaPeliculas {
         }
         return ultimosNElementos;
     }
-    
-    // PARTE F
     
     public boolean delete(String nombre) {
         Nodo q = null, p = L;
@@ -164,6 +152,27 @@ public class ListaPeliculas {
         }
         return true;
     }
+    
+    // SOLUCIÓN EJERCICIO
+    
+    public void ordenar() {
+        Nodo p, q;
+        Pelicula aux;
+        p = L;
+        while (p.getSgte() != null) {
+            q = p.getSgte();
+            while (q != null) {
+                if (p.getValor().getDuracionSec() > q.getValor().getDuracionSec()) {
+                    aux = p.getValor();
+                    p.setValor(q.getValor());
+                    q.setValor(aux);
+                }
+                q = q.getSgte();
+            }
+            p = p.getSgte();
+        }
+    }
+
     
     public void mostrar(DefaultListModel modelo) {
         Nodo p = L;

@@ -39,5 +39,9 @@ public class LogicApp {
     public static boolean delete(ListaPeliculas peliculas, String nombre) {
         return peliculas.delete(nombre);
     }
+    
+    public static void ordernarCreciente(ListaPeliculas peliculas) {
+        peliculas.ordenar();
+    }
             
 }
