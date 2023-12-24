@@ -153,7 +153,7 @@ public class ListaPeliculas {
         return true;
     }
     
-    // SOLUCIÓN EJERCICIO
+    // SOLUCIÓN EJERCICIOw
     
     public void ordenar() {
         Nodo p, q;
