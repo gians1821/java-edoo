@@ -167,6 +167,22 @@ public class ListaNodoSimple {
         return true;
     }
     
+    // PARTE G
+    
+    public boolean sonIguales(ListaNodoSimple lista2) {
+        int n = contar();
+        int m = lista2.contar();
+        if (n != m) return false;
+        Nodo p = L;
+        Nodo q = lista2.getL();
+        while (p != null) {
+            if (p.getValor() != p.getValor()) return false;
+            p = p.getSgte();
+            q = q.getSgte();
+        }
+        return true;
+    }
+    
     public void mostrar(DefaultListModel modelo) {
         Nodo p = L;
         modelo.removeAllElements();
