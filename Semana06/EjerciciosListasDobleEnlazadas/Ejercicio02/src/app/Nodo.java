@@ -2,25 +2,25 @@ package app;
 
 public class Nodo {
     
-    private Empleado valor;
+    private int valor;
     private Nodo ant;
     private Nodo sgte;
 
-    public Nodo(Empleado valor) {
+    public Nodo(int valor) {
         this.valor = valor;
     }
 
-    public Nodo(Empleado valor, Nodo ant, Nodo sgte) {
+    public Nodo(int valor, Nodo ant, Nodo sgte) {
         this.valor = valor;
         this.ant = ant;
         this.sgte = sgte;
     }
 
-    public Empleado getValor() {
+    public int getValor() {
         return valor;
     }
 
-    public void setValor(Empleado valor) {
+    public void setValor(int valor) {
         this.valor = valor;
     }
 
