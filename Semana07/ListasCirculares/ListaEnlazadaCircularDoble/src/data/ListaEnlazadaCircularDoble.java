@@ -12,6 +12,22 @@ public class ListaEnlazadaCircularDoble {
         ultimo = null;
     }
 
+    public Nodo getPrimero() {
+        return primero;
+    }
+
+    public void setPrimero(Nodo primero) {
+        this.primero = primero;
+    }
+
+    public Nodo getUltimo() {
+        return ultimo;
+    }
+
+    public void setUltimo(Nodo ultimo) {
+        this.ultimo = ultimo;
+    }
+
     public boolean esVacia() {
         return primero == null;
     }

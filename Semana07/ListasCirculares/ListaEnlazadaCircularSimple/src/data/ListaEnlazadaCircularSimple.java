@@ -10,6 +10,14 @@ public class ListaEnlazadaCircularSimple {
         u = null;
     }
 
+    public Nodo getU() {
+        return u;
+    }
+
+    public void setU(Nodo u) {
+        this.u = u;
+    }
+
     public boolean esVacia() {
         return u == null;
     }
