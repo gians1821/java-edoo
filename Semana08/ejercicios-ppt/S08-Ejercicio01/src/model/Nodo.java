@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package proyectopilagenerica;
+package model;
 
-/**
- *
- * @author Sistemas
- */
 public class Nodo<T> {
+    
     private T info;
     private Nodo<T> sgte;
 
@@ -18,8 +11,6 @@ public class Nodo<T> {
     public Nodo(T info) {
         this.info = info;
     }
-    
-    
     
     public Nodo(T info, Nodo<T> sgte) {
         this.info = info;
@@ -41,7 +32,6 @@ public class Nodo<T> {
     public void setSgte(Nodo<T> sgte) {
         this.sgte = sgte;
     }
-    
     
 }
 
