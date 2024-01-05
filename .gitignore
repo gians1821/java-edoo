@@ -1,20 +1,5 @@
-/Semana03/Ejercicio05/nbproject/private/
-/Semana03/Ejercicio01/build/
-/Semana03/Ejercicio01/nbproject/private/
-/Semana03/Ejercicio02/build/
-/Semana03/Ejercicio02/nbproject/private/
-/Semana03/Ejercicio03/build/
-/Semana03/Ejercicio03/nbproject/private/
-/Semana03/Ejercicio04/build/
-/Semana03/Ejercicio04/nbproject/private/
-/Semana03/Ejercicio05/build/
-/Semana03/EjercicioBusqueda01/nbproject/private/
-/Semana03/EjercicioBusqueda02/nbproject/private/
-/Semana03/EjercicioBusqueda03/nbproject/private/
-/Semana03/EjercicioBusqueda04/nbproject/private/
-/Semana04/EjercicioListasEnlazadas01/nbproject/private/
-/Semana04/EjercicioListasEnlazadas/nbproject/private/
-/Semana04/EjemploListasEnlazadas/nbproject/private/
+/General JFrame/build/
+/General JFrame/nbproject/private/
 /Semana01/EjerciciosJuevesG2/Ejercicio01/build/
 /Semana01/EjerciciosJuevesG2/Ejercicio01/nbproject/private/
 /Semana01/EjerciciosJuevesG2/Ejercicio02/build/
@@ -52,48 +37,65 @@
 /Semana01/EjerciciosResueltos/Ejercicio06/nbproject/private/
 /Semana01/EjerciciosResueltos/Ejercicio07/build/
 /Semana01/EjerciciosResueltos/Ejercicio07/nbproject/private/
+/Semana03/Ejercicio01/build/
+/Semana03/Ejercicio01/nbproject/private/
+/Semana03/Ejercicio02/build/
+/Semana03/Ejercicio02/nbproject/private/
+/Semana03/Ejercicio03/build/
+/Semana03/Ejercicio03/nbproject/private/
+/Semana03/Ejercicio04/build/
+/Semana03/Ejercicio04/nbproject/private/
+/Semana03/Ejercicio05/build/
+/Semana03/Ejercicio05/nbproject/private/
+/Semana03/EjercicioBusqueda01/nbproject/private/
+/Semana03/EjercicioBusqueda02/nbproject/private/
+/Semana03/EjercicioBusqueda03/nbproject/private/
+/Semana03/EjercicioBusqueda04/nbproject/private/
+/Semana04/EjemploListasEnlazadas/build/
+/Semana04/EjemploListasEnlazadas/dist/
+/Semana04/EjemploListasEnlazadas/nbproject/private/
+/Semana04/EjercicioListasEnlazadas01/build/
+/Semana04/EjercicioListasEnlazadas01/nbproject/private/
 /Semana04/EjercicioListasEnlazadas02/build/
 /Semana04/EjercicioListasEnlazadas02/dist/
 /Semana04/EjercicioListasEnlazadas02/nbproject/private/
-/Semana04/EjercicioListasEnlazadas01/build/
-/Semana05 PARCIAL/Repaso0/JavaApplication1/nbproject/private/
+/Semana04/EjercicioListasEnlazadas/nbproject/private/
 /Semana05 PARCIAL/Repaso0/JavaApplication1/build/
-/Semana05 PARCIAL/Repaso1/Ejercicio001/nbproject/private/
+/Semana05 PARCIAL/Repaso0/JavaApplication1/nbproject/private/
 /Semana05 PARCIAL/Repaso1/Ejercicio001/build/
-/Semana05 PARCIAL/Repaso1/Ejercicio02/nbproject/private/
+/Semana05 PARCIAL/Repaso1/Ejercicio001/nbproject/private/
 /Semana05 PARCIAL/Repaso1/Ejercicio01/nbproject/private/
 /Semana05 PARCIAL/Repaso1/Ejercicio02/build/
-/Semana04/EjemploListasEnlazadas/dist/
-/Semana04/EjemploListasEnlazadas/build/
-/Semana05 PARCIAL/Repaso1/Ejercicio03/nbproject/private/
+/Semana05 PARCIAL/Repaso1/Ejercicio02/nbproject/private/
 /Semana05 PARCIAL/Repaso1/Ejercicio03/build/
 /Semana05 PARCIAL/Repaso1/Ejercicio03/dist/
-/Semana06/EjerciciosListasDobleEnlazadas/Ejercicio01/nbproject/private/
+/Semana05 PARCIAL/Repaso1/Ejercicio03/nbproject/private/
 /Semana06/EjerciciosListasDobleEnlazadas/Ejercicio01/build/
 /Semana06/EjerciciosListasDobleEnlazadas/Ejercicio01/dist/
-/Semana06/EjerciciosListasDobleEnlazadas/Ejercicio02/nbproject/private/
+/Semana06/EjerciciosListasDobleEnlazadas/Ejercicio01/nbproject/private/
 /Semana06/EjerciciosListasDobleEnlazadas/Ejercicio02/build/
-/Semana07/EjerciciosPropuestos/Ejercicio01/nbproject/private/
-/Semana07/ListasCirculares/EjemploListasCirculares/nbproject/private/
-/Semana07/ListasCirculares/ListaEnlazadaCircularSimple/nbproject/private/
-/Semana07/ListasCirculares/ListaEnlazadaCircularSimple/build/
-/Semana07/ListasCirculares/ListaEnlazadaCircularDoble/nbproject/private/
+/Semana06/EjerciciosListasDobleEnlazadas/Ejercicio02/nbproject/private/
 /Semana07/EjerciciosPropuestos/Ejercicio01/build/
-/Semana07/ListasCirculares/Ejercicio03/nbproject/private/
-/Semana07/ListasCirculares/Ejercicio03/build/
-/Semana07/EjerciciosPropuestos/Ejercicio03/build/
-/Semana07/EjerciciosPropuestos/Ejercicio04/nbproject/private/
-/Semana07/EjerciciosPropuestos/Ejercicio04/build/
-/Semana07/EjerciciosPropuestos/Ejercicio05/nbproject/private/
-/Semana07/EjerciciosPropuestos/Ejercicio05/build/
-/Semana07/EjerciciosPropuestos/Ejercicio02/nbproject/private/
+/Semana07/EjerciciosPropuestos/Ejercicio01/nbproject/private/
 /Semana07/EjerciciosPropuestos/Ejercicio02/build/
-/Semana08/ejercicios-ppt/Ejercicio01/nbproject/private/
-/Semana08/ProyectoPilaGenerica/build/
-/Semana08/ProyectoPilaGenerica/nbproject/private/
+/Semana07/EjerciciosPropuestos/Ejercicio02/nbproject/private/
+/Semana07/EjerciciosPropuestos/Ejercicio03/build/
+/Semana07/EjerciciosPropuestos/Ejercicio04/build/
+/Semana07/EjerciciosPropuestos/Ejercicio04/nbproject/private/
+/Semana07/EjerciciosPropuestos/Ejercicio05/build/
+/Semana07/EjerciciosPropuestos/Ejercicio05/nbproject/private/
+/Semana07/ListasCirculares/EjemploListasCirculares/nbproject/private/
+/Semana07/ListasCirculares/Ejercicio03/build/
+/Semana07/ListasCirculares/Ejercicio03/nbproject/private/
+/Semana07/ListasCirculares/ListaEnlazadaCircularDoble/nbproject/private/
+/Semana07/ListasCirculares/ListaEnlazadaCircularSimple/build/
+/Semana07/ListasCirculares/ListaEnlazadaCircularSimple/nbproject/private/
 /Semana08/ejercicios-ppt/Ejercicio01/build/
 /Semana08/ejercicios-ppt/Ejercicio01/dist/
-/Semana08/ejercicios-ppt/S08-Ejercicio01/nbproject/private/
-/Semana08/ejercicios-ppt/General JFrame/nbproject/private/
+/Semana08/ejercicios-ppt/Ejercicio01/nbproject/private/
 /Semana08/ejercicios-ppt/General JFrame/build/
+/Semana08/ejercicios-ppt/General JFrame/nbproject/private/
 /Semana08/ejercicios-ppt/S08-Ejercicio01/build/
+/Semana08/ejercicios-ppt/S08-Ejercicio01/nbproject/private/
+/Semana08/ProyectoPilaGenerica/build/
+/Semana08/ProyectoPilaGenerica/nbproject/private/
