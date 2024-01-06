@@ -1,0 +1,8 @@
+Hola, este es un archivo de texto.
+Se usa para poner texto.
+
+También se pueden separar mediante líneas. Aquí arriba hay una línea.
+
+
+Y ahora aquí arriba hay dos líneas.
+Y por supuesto, la línea final nunca falta.
