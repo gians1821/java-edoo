@@ -3,7 +3,7 @@ package app.assets;
 public class Ejemplo {
     private String nombre;
 
-    public Ejemplo(String )nombre) {
+    public Ejemplo(String ] nombre) {
         this.nombre = nombre;
     }
 

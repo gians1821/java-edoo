@@ -70,7 +70,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemplazarActionPerformed
 
     private void btnAnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarActionPerformed
-        Control.analizarSimbolos();
+        Character simbolo = Control.analizarSimbolos();
+        if (simbolo == 'Y') {
+            MessageController.showInfoMessage("SIMBOLOS CORRECTOS");
+        } else {
+            MessageController.showInfoMessage("SIMBOLO QUE FALTA O SOBRA: " + simbolo);
+        }
     }//GEN-LAST:event_btnAnalizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
