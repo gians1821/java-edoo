@@ -8,4 +8,8 @@ public class MessageController {
         JOptionPane.showMessageDialog(null, message, "Información", JOptionPane.INFORMATION_MESSAGE);
     }
     
+    public static void showWarningMessage(String message) {
+        JOptionPane.showMessageDialog(null, message, "Peligro", JOptionPane.WARNING_MESSAGE);
+    }
+    
 }

@@ -11,6 +11,14 @@ public class Cola<T> {
         primero = null;
         ultimo = null;
     }
+
+    protected Nodo<T> getPrimero() {
+        return primero;
+    }
+
+    protected Nodo<T> getUltimo() {
+        return ultimo;
+    }
     
     public boolean empty() {
         return primero == null;
@@ -59,6 +67,5 @@ public class Cola<T> {
             p = p.getSgte();
         }
     }
-    
     
 }

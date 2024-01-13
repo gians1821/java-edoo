@@ -3,11 +3,11 @@ package model;
 public class Cliente {
     
     private String nombre;
-    private Float montoCompra;
+    private int prioridad;
 
-    public Cliente(String nombre, Float montoCompra) {
+    public Cliente(String nombre, int prioridad) {
         this.nombre = nombre;
-        this.montoCompra = montoCompra;
+        this.prioridad = prioridad;
     }
 
     public String getNombre() {
@@ -18,17 +18,17 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public Float getMontoCompra() {
-        return montoCompra;
+    public int getPrioridad() {
+        return prioridad;
     }
 
-    public void setMontoCompra(Float montoCompra) {
-        this.montoCompra = montoCompra;
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", montoCompra=" + montoCompra + '}';
+        return "Cliente{" + "nombre=" + nombre + ", prioridad=" + prioridad + '}';
     }
     
 }
