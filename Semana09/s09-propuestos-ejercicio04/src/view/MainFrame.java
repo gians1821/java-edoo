@@ -7,7 +7,7 @@ import model.Cola;
 public class MainFrame extends javax.swing.JFrame {
 
     DefaultListModel modelo = new DefaultListModel();
-    Cola cola = new Cola(10);
+    Cola cola = new Cola(5);
     
     public MainFrame() {
         initComponents();
@@ -37,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtEntero.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         txtEntero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
         txtEntero.setPreferredSize(new java.awt.Dimension(200, 40));
-        bg.add(txtEntero, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+        bg.add(txtEntero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
 
         btnMostrar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnMostrar.setText("MOSTRAR");
@@ -47,7 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnMostrarActionPerformed(evt);
             }
         });
-        bg.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
+        bg.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         btnEncolar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnEncolar.setText("ENCOLAR");
@@ -57,7 +57,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnEncolarActionPerformed(evt);
             }
         });
-        bg.add(btnEncolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
+        bg.add(btnEncolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
 
         btnDesencolar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnDesencolar.setText("DESENCOLAR");
@@ -67,7 +67,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnDesencolarActionPerformed(evt);
             }
         });
-        bg.add(btnDesencolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+        bg.add(btnDesencolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
         btnEmpty.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnEmpty.setText("EMPTY");
@@ -77,7 +77,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnEmptyActionPerformed(evt);
             }
         });
-        bg.add(btnEmpty, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
+        bg.add(btnEmpty, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
 
         btnClear.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnClear.setText("CLEAR");
@@ -87,7 +87,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        bg.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+        bg.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         btnFrente.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnFrente.setText("FRENTE");
@@ -97,14 +97,14 @@ public class MainFrame extends javax.swing.JFrame {
                 btnFrenteActionPerformed(evt);
             }
         });
-        bg.add(btnFrente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
+        bg.add(btnFrente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, 30));
 
         scroll1.setPreferredSize(new java.awt.Dimension(150, 175));
 
         list1.setModel(modelo);
         scroll1.setViewportView(list1);
 
-        bg.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, -1, -1));
+        bg.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, -1, -1));
 
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
@@ -112,17 +112,32 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEncolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncolarActionPerformed
+        System.out.println("ANTES");
+        System.out.println(cola.getIndexPrimero());
+        System.out.println(cola.getIndexUltimo());        
+        System.out.println("======================");
         Control.encolar(cola, txtEntero.getText());
         Control.mostrar(cola, modelo);
+        System.out.println("DESPUES");
+        System.out.println(cola.getIndexPrimero());
+        System.out.println(cola.getIndexUltimo());
+
     }//GEN-LAST:event_btnEncolarActionPerformed
 
     private void btnDesencolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesencolarActionPerformed
+        System.out.println("ANTES");
+        System.out.println(cola.getIndexPrimero());
+        System.out.println(cola.getIndexUltimo());        
+        System.out.println("======================");
         Control.desencolar(cola);
         Control.mostrar(cola, modelo);
+        System.out.println("DESPUES");
+        System.out.println(cola.getIndexPrimero());
+        System.out.println(cola.getIndexUltimo());
     }//GEN-LAST:event_btnDesencolarActionPerformed
 
     private void btnEmptyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmptyActionPerformed
-        Control.isEmpty(cola);
+        Control.empty(cola);
     }//GEN-LAST:event_btnEmptyActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

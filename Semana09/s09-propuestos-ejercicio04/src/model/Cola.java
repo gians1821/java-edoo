@@ -20,11 +20,11 @@ public class Cola {
         indexUltimo = this.maxTamaño - 1;
     }
 
-    protected int getIndexPrimero() {
+    public int getIndexPrimero() {
         return indexPrimero;
     }
 
-    protected int getIndexUltimo() {
+    public int getIndexUltimo() {
         return indexUltimo;
     }
     
@@ -44,7 +44,11 @@ public class Cola {
     }
     
     public Integer desencolar() {
-        if (!isEmpty()) return cola[indexPrimero++];
+        if (!isEmpty()) {
+            Integer entero = cola[indexPrimero];
+            indexPrimero = siguiente(indexPrimero);
+            return entero;
+        }
         return null;
     }
     
@@ -60,8 +64,16 @@ public class Cola {
     
     public void mostrar(DefaultListModel modelo) {
         modelo.removeAllElements();
-        for (int i = 0; i < maxTamaño; i++) {
-            modelo.addElement(cola[i]);
+        if (isEmpty()) return;
+        int p = indexPrimero;
+        if (p == indexUltimo) {
+            modelo.addElement(cola[p]);
+        } else {
+            while (p != indexUltimo) {
+                modelo.addElement(cola[p]);
+                p = siguiente(p);
+            }
+            modelo.addElement(cola[p]);
         }
     }
     
