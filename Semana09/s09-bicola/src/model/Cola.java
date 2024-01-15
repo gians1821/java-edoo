@@ -4,8 +4,8 @@ import javax.swing.DefaultListModel;
 
 public class Cola<T> {
     
-    private Nodo<T> primero;
-    private Nodo<T> ultimo;
+    protected Nodo<T> primero;
+    protected Nodo<T> ultimo;
 
     public Cola() {
         primero = null;
@@ -24,7 +24,7 @@ public class Cola<T> {
         return primero == null;
     }
 
-    public void encolar(T info) {
+    protected void encolar(T info) {
         Nodo<T> nuevo = new Nodo(info);
         if (empty()) {
             primero = nuevo;
@@ -35,7 +35,7 @@ public class Cola<T> {
         }
     }
     
-    public T desencolar() {
+    protected T desencolar() {
         if (empty()) return null;
         Nodo<T> nodo = primero;
         if (nodo == ultimo) {
