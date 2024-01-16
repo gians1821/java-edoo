@@ -1,4 +1,4 @@
-package app;
+package ejercicio1.app;
 
 import static java.lang.Integer.MAX_VALUE;
 import javax.swing.DefaultListModel;

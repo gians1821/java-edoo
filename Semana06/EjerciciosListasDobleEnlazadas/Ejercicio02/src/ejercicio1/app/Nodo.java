@@ -1,4 +1,4 @@
-package app;
+package ejercicio1.app;
 
 public class Nodo {
     

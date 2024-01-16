@@ -1,4 +1,4 @@
-package app;
+package ejercicio1.app;
 
 import java.awt.Color;
 import javax.swing.DefaultListModel;
