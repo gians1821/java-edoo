@@ -36,7 +36,7 @@ public class Nodo {
 
     @Override
     public String toString() {
-        return "Nodo{" + "info=" + info + ", ant=" + ant + ", sgte=" + sgte + '}';
+        return "Nodo{" + "info=" + info + '}';
     }
     
 }

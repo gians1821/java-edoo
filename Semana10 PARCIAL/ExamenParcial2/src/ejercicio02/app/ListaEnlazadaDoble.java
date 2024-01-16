@@ -33,7 +33,31 @@ public class ListaEnlazadaDoble {
         }
     }
     
-    
+    public void eliminarRepetidos() {
+        if (esVacia() || contar() == 1) return;
+        Nodo p = primero;
+        while (p != null) {
+            Nodo q = p.getSgte();
+            while (q != null) {
+                if (q.getInfo() == p.getInfo()) {
+                    Nodo siguiente = q.getSgte();
+                    if (q != ultimo) {
+                        q.getAnt().setSgte(q.getSgte());
+                        q.getSgte().setAnt(q.getAnt());
+                        q.setAnt(null);
+                        q.setSgte(null);
+                    } else {
+                        q.getAnt().setSgte(null);
+                        ultimo = q.getAnt();
+                        q.setAnt(null);
+                        q.setSgte(null);
+                    }
+                    q = siguiente;
+                } else q = q.getSgte();
+            }
+            p = p.getSgte();
+        }
+    }
 
     private boolean esVacia() {
         return primero == null;
