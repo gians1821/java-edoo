@@ -12,14 +12,13 @@ public class Main {
         
         aquelArbolito.insertar(4);
         aquelArbolito.insertar(4);
+        aquelArbolito.insertar(3);
         aquelArbolito.insertar(6);
         aquelArbolito.insertar(7);
         aquelArbolito.insertar(7);
-
-
-
+        aquelArbolito.insertar(5);
         
-        System.out.println(aquelArbolito.getRaiz().getDcho().getDcho().getDcho());
+        System.out.println(aquelArbolito.buscar(5).getIzdo().getIzdo());
         
     }
     

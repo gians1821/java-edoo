@@ -30,5 +30,16 @@ public class ArbolBinarioBusqueda {
         }
         return nodo;
     }
+    
+    public Nodo buscar(int dato) {
+        return buscar(raiz, dato);
+    }
+    
+    public Nodo buscar(Nodo nodo, int dato) {
+        if (nodo == null) return null;
+        else if (dato < nodo.getDato()) return buscar(nodo.getIzdo(), dato);
+        else if (dato > nodo.getDato()) return buscar(nodo.getDcho(), dato);
+        else return nodo;
+    }
 
 }
