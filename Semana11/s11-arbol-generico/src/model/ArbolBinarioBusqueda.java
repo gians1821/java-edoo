@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class ArbolBinarioBusqueda {
     
     private Nodo raiz;
@@ -82,4 +84,16 @@ public class ArbolBinarioBusqueda {
         return sucesor;
     }
 
+    public void preOrden() {
+        preOrden(raiz);
+    }
+    
+    private void preOrden(Nodo nodo) {
+        if (nodo != null) {
+            System.out.println(nodo);
+            preOrden(nodo.getIzdo());
+            preOrden(nodo.getDcho());
+        }
+    }
+    
 }
