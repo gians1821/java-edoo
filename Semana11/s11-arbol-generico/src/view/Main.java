@@ -24,7 +24,10 @@ public class Main {
         aquelArbolito.eliminar(12);
         aquelArbolito.eliminar(7);
 //        System.out.println(aquelArbolito.getRaiz().getDcho().getDcho());
-        aquelArbolito.preOrden();
+//        aquelArbolito.preOrden();
+//        aquelArbolito.enOrden();
+        aquelArbolito.postOrden();
+
         
     }
     

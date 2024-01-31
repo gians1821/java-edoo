@@ -96,4 +96,28 @@ public class ArbolBinarioBusqueda {
         }
     }
     
+    public void enOrden() {
+        enOrden(raiz);
+    }
+    
+    private void enOrden(Nodo nodo) {
+        if (nodo != null) {
+            enOrden(nodo.getIzdo());
+            System.out.println(nodo);
+            enOrden(nodo.getDcho());
+        }
+    }
+    
+    public void postOrden() {
+        postOrden(raiz);
+    }
+    
+    private void postOrden(Nodo nodo) {
+        if (nodo != null) {
+            postOrden(nodo.getIzdo());
+            postOrden(nodo.getDcho());
+            System.out.println(nodo);
+        }
+    }
+    
 }
