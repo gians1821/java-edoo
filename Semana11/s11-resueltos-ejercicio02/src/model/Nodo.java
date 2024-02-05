@@ -2,20 +2,20 @@ package model;
 
 public class Nodo {
     
-    private int dato;
+    private Empleado dato;
     private Nodo izdo;
     private Nodo dcho;
 
-    public Nodo(int dato) {
+    public Nodo(Empleado dato) {
         this.dato = dato;
         izdo = dcho = null;
     }
 
-    public int getDato() {
+    public Empleado getDato() {
         return dato;
     }
 
-    public void setDato(int dato) {
+    public void setDato(Empleado dato) {
         this.dato = dato;
     }
 
@@ -35,13 +35,9 @@ public class Nodo {
         this.dcho = dcho;
     }
     
-    public boolean tieneHijos() {
-        return izdo != null && dcho != null;
-    }
-
     @Override
     public String toString() {
         return "Nodo{" + "dato=" + dato + "}";
     }
-    
+
 }
