@@ -6,12 +6,18 @@ import model.ArbolBinarioBusqueda;
 
 public class MainFrame extends javax.swing.JFrame {
 
-    DefaultListModel modelo = new DefaultListModel();
+    DefaultListModel modeloPre = new DefaultListModel();
+    DefaultListModel modeloEn = new DefaultListModel();
+    DefaultListModel modeloPos = new DefaultListModel();
     ArbolBinarioBusqueda arbol = new ArbolBinarioBusqueda();
     
     public MainFrame() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    private void actualizar() {
+        txtResultado.setText(arbol.resultados());
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
+        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
 
         btnEliminar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnEliminar.setText("ELIMINAR");
@@ -60,12 +66,12 @@ public class MainFrame extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, -1, -1));
+        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, -1));
 
         scroll1.setBorder(javax.swing.BorderFactory.createTitledBorder("PREORDEN"));
         scroll1.setPreferredSize(new java.awt.Dimension(150, 230));
 
-        list1.setModel(modelo);
+        list1.setModel(modeloPre);
         scroll1.setViewportView(list1);
 
         bg.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
@@ -83,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
         scroll2.setBorder(javax.swing.BorderFactory.createTitledBorder("ENORDEN"));
         scroll2.setPreferredSize(new java.awt.Dimension(150, 230));
 
-        list2.setModel(modelo);
+        list2.setModel(modeloEn);
         scroll2.setViewportView(list2);
 
         bg.add(scroll2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
@@ -91,7 +97,7 @@ public class MainFrame extends javax.swing.JFrame {
         scroll3.setBorder(javax.swing.BorderFactory.createTitledBorder("POSORDEN"));
         scroll3.setPreferredSize(new java.awt.Dimension(150, 230));
 
-        list3.setModel(modelo);
+        list3.setModel(modeloPos);
         scroll3.setViewportView(list3);
 
         bg.add(scroll3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, -1, -1));
@@ -100,7 +106,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtResultado.setRows(5);
         scroll4.setViewportView(txtResultado);
 
-        bg.add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 416, -1, 120));
+        bg.add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, 120));
 
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
@@ -108,13 +114,19 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Control.buscar(arbol, txtValor.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        Control.eliminar(arbol, txtValor.getText());
+        Control.mostrar(arbol, modeloPre, modeloEn, modeloPos);
+        actualizar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Control.insertar(arbol, txtValor.getText());
+        Control.mostrar(arbol, modeloPre, modeloEn, modeloPos);
+        actualizar();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

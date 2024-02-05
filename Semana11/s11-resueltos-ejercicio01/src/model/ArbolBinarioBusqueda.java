@@ -163,12 +163,10 @@ public class ArbolBinarioBusqueda {
     }
     
     public String resultados() {
-        return "<html>"
-                + "El mayor es: " + buscarMax() + "<br>"
-                + "El menor es: " + buscarMin() + "<br>"
-                + "Número de nodos: " + contar() + "<br>"
-                + "Altura del Árbol: " + alturaArbol() +
-                "</html>";
+        return "El mayor es: " + buscarMax() + "\n"
+                + "El menor es: " + buscarMin() + "\n"
+                + "Número de nodos: " + contar() + "\n"
+                + "Altura del Árbol: " + alturaArbol();
     }
     
 }
