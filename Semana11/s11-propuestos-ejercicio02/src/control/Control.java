@@ -45,4 +45,14 @@ public class Control {
         arbol.postOrden(modelo3);
     }
     
+    public static int profundidad(ArbolBinarioBusqueda arbol, String dato) {
+        try {
+            int intDato = Integer.parseInt(dato);
+            return arbol.getProfundidad(intDato);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+        return Integer.MIN_VALUE;
+    }
+    
 }

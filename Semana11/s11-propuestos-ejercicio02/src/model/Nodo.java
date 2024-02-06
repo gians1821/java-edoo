@@ -35,10 +35,6 @@ public class Nodo {
         this.dcho = dcho;
     }
     
-    public boolean tieneHijos() {
-        return izdo != null && dcho != null;
-    }
-
     @Override
     public String toString() {
         return "Nodo{" + "dato=" + dato + "}";

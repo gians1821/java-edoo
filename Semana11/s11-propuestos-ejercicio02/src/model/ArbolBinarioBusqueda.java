@@ -5,6 +5,7 @@ import javax.swing.DefaultListModel;
 public class ArbolBinarioBusqueda {
     
     private Nodo raiz;
+    private int sumatoria = 0;
 
     public ArbolBinarioBusqueda() {
     }
@@ -162,11 +163,50 @@ public class ArbolBinarioBusqueda {
         }
     }
     
+    public int sumarTodo() {
+        sumatoria = 0;
+        sumarTodo(raiz);
+        return sumatoria;
+    }
+    
+    private void sumarTodo(Nodo nodo) {
+        if (nodo != null) {
+            sumarTodo(nodo.getIzdo());
+            sumatoria += nodo.getDato();
+            sumarTodo(nodo.getDcho());
+        }
+    }
+    
+    public int contarHojas() {
+        return contarHojas(raiz);
+    }
+    
+    private int contarHojas(Nodo nodo) {
+        if (nodo == null) return 0;
+        else if (nodo.getIzdo() == null && nodo.getDcho() == null)
+            return 1 + contarHojas(nodo.getIzdo()) + contarHojas(nodo.getDcho());            
+        else return contarHojas(nodo.getIzdo()) + contarHojas(nodo.getDcho());
+    }
+    
+    public int getProfundidad(int dato) {
+        return getProfundidad(raiz, buscar(dato), 0);
+    }
+    
+    public int getProfundidad(Nodo nodo, Nodo buscado, int profundidadActual) {
+        if (nodo == null) {
+            return -1; 
+        } else if (nodo.getDato() == buscado.getDato()) {
+            return profundidadActual;
+        } else if (buscado.getDato() < nodo.getDato()) {
+            return getProfundidad(nodo.getIzdo(), buscado, profundidadActual + 1);
+        } else {
+            return getProfundidad(nodo.getDcho(), buscado, profundidadActual + 1);
+        }
+    }
+    
     public String resultados() {
-        return "El mayor es: " + buscarMax() + "\n"
-                + "El menor es: " + buscarMin() + "\n"
-                + "Número de nodos: " + contar() + "\n"
-                + "Altura del Árbol: " + alturaArbol();
+        return "La sumatoria es: " + sumarTodo() + "\n"
+                + "La cantidad de hojas es: " + contarHojas();
     }
     
 }

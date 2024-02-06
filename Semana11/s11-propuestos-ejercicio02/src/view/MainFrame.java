@@ -1,6 +1,7 @@
 package view;
 
 import control.Control;
+import control.MessageController;
 import javax.swing.DefaultListModel;
 import model.ArbolBinarioBusqueda;
 
@@ -37,6 +38,7 @@ public class MainFrame extends javax.swing.JFrame {
         list3 = new javax.swing.JList<>();
         scroll4 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        btnProfundidad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
+        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
         btnEliminar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnEliminar.setText("ELIMINAR");
@@ -66,7 +68,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, -1));
+        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, -1, -1));
 
         scroll1.setBorder(javax.swing.BorderFactory.createTitledBorder("PREORDEN"));
         scroll1.setPreferredSize(new java.awt.Dimension(150, 230));
@@ -106,7 +108,17 @@ public class MainFrame extends javax.swing.JFrame {
         txtResultado.setRows(5);
         scroll4.setViewportView(txtResultado);
 
-        bg.add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, 120));
+        bg.add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, -1, 130));
+
+        btnProfundidad.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        btnProfundidad.setText("PROFUNDIDAD");
+        btnProfundidad.setPreferredSize(new java.awt.Dimension(150, 30));
+        btnProfundidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfundidadActionPerformed(evt);
+            }
+        });
+        bg.add(btnProfundidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, -1, -1));
 
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
@@ -129,11 +141,20 @@ public class MainFrame extends javax.swing.JFrame {
         actualizar();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    private void btnProfundidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfundidadActionPerformed
+        int profundidad = Control.profundidad(arbol, txtValor.getText());
+        if (profundidad == Integer.MIN_VALUE)
+            MessageController.showWarningMessage("Nodo no encontrado");
+        else 
+            MessageController.showInfoMessage("La profundidad del nodo buscado es " + profundidad);
+    }//GEN-LAST:event_btnProfundidadActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnProfundidad;
     private javax.swing.JList<String> list1;
     private javax.swing.JList<String> list2;
     private javax.swing.JList<String> list3;
