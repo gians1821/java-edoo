@@ -39,14 +39,14 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtSueldo">
+        <Component class="javax.swing.JTextField" name="txtCarrera">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="15" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="SUELDO">
+                <TitledBorder title="CARRERA">
                   <Font PropertyName="font" name="SansSerif" size="15" style="0"/>
                 </TitledBorder>
               </Border>
@@ -57,7 +57,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="100" width="-1" height="-1"/>
+              <AbsoluteConstraints x="490" y="100" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -121,14 +121,14 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombres">
+        <Component class="javax.swing.JTextField" name="txtNombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="15" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="NOMBRES">
+                <TitledBorder title="NOMBRE">
                   <Font PropertyName="font" name="SansSerif" size="15" style="0"/>
                 </TitledBorder>
               </Border>
@@ -143,14 +143,14 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtApellidos">
+        <Component class="javax.swing.JTextField" name="txtCiclo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="15" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="APELLIDOS">
+                <TitledBorder title="CICLO">
                   <Font PropertyName="font" name="SansSerif" size="15" style="0"/>
                 </TitledBorder>
               </Border>
@@ -307,20 +307,14 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="txtSexo">
+        <Component class="javax.swing.JTextField" name="txtCreditos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="15" style="0"/>
             </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="MASCULINO"/>
-                <StringItem index="1" value="FEMENINO"/>
-              </StringArray>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="SEXO">
+                <TitledBorder title="CR&#xc9;DITOS">
                   <Font PropertyName="font" name="SansSerif" size="15" style="0"/>
                 </TitledBorder>
               </Border>
@@ -329,12 +323,9 @@
               <Dimension value="[200, 50]"/>
             </Property>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="490" y="100" width="-1" height="-1"/>
+              <AbsoluteConstraints x="260" y="100" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

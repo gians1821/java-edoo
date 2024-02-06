@@ -1,43 +1,42 @@
 package control;
 
-import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import model.ArbolBinarioBusqueda;
-import model.Empleado;
+import model.Curso;
 import model.Nodo;
 
 public class Control {
     
-    public static void insertar(ArbolBinarioBusqueda arbol, String codigo, String nombres, String apellidos, String sexo, String sueldo) {
+    public static void insertar(ArbolBinarioBusqueda arbol, String codigo, String nombre, String ciclo, String creditos, String carrera) {
         try {
-            Empleado empleado = new Empleado(codigo, nombres, apellidos, sexo, Float.parseFloat(sueldo));
-            arbol.insertar(empleado);    
+            Curso curso = new Curso(codigo, nombre, ciclo, Integer.parseInt(creditos), carrera);
+            arbol.insertar(curso);
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
     }
     
-    public static void modificar(ArbolBinarioBusqueda arbol, String codigo, String nombres, String apellidos, String sexo, String sueldo) {
+    public static void modificar(ArbolBinarioBusqueda arbol, String codigo, String nombre, String ciclo, String creditos, String carrera) {
         try {
-            Empleado empleadoViejo = new Empleado(codigo);
-            Empleado empleadoNuevo = new Empleado(codigo, nombres, apellidos, sexo, Float.parseFloat(sueldo));
-            arbol.modificar(empleadoViejo, empleadoNuevo);    
+            Curso cursoViejo = new Curso(codigo);
+            Curso cursoNuevo = new Curso(codigo, nombre, ciclo, Integer.parseInt(creditos), carrera);
+            arbol.modificar(cursoViejo, cursoNuevo);    
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
     }
     
-    public static void eliminar(ArbolBinarioBusqueda arbol, String codigo, String nombres, String apellidos, String sexo, String sueldo) {
+    public static void eliminar(ArbolBinarioBusqueda arbol, String codigo, String nombre, String ciclo, String creditos, String carrera) {
         try {
-            Empleado empleado = new Empleado(codigo, nombres, apellidos, sexo, Float.parseFloat(sueldo));
-            arbol.eliminar(empleado);    
+            Curso curso = new Curso(codigo, nombre, ciclo, Integer.parseInt(creditos), carrera);
+            arbol.eliminar(curso);    
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
     }
     
     public static Nodo consultar(ArbolBinarioBusqueda arbol, String codigo) {
-        Empleado empleado = new Empleado(codigo);
+        Curso empleado = new Curso(codigo);
         return arbol.buscar(empleado);
     }
     

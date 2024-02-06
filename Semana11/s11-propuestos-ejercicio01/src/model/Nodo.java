@@ -2,20 +2,20 @@ package model;
 
 public class Nodo {
     
-    private Empleado dato;
+    private Curso dato;
     private Nodo izdo;
     private Nodo dcho;
 
-    public Nodo(Empleado dato) {
+    public Nodo(Curso dato) {
         this.dato = dato;
         izdo = dcho = null;
     }
 
-    public Empleado getDato() {
+    public Curso getDato() {
         return dato;
     }
 
-    public void setDato(Empleado dato) {
+    public void setDato(Curso dato) {
         this.dato = dato;
     }
 

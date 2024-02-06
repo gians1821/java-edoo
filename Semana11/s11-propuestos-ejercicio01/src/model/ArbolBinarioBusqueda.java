@@ -21,11 +21,11 @@ public class ArbolBinarioBusqueda {
         return raiz == null;
     }
     
-    public void insertar(Empleado dato) {
+    public void insertar(Curso dato) {
         raiz = insertar(raiz, dato);
     }
     
-    private Nodo insertar(Nodo nodo, Empleado dato) {
+    private Nodo insertar(Nodo nodo, Curso dato) {
         if (nodo == null) nodo = new Nodo(dato);
         else if (dato.compareTo(nodo.getDato()) < 0)
             nodo.setIzdo(insertar(nodo.getIzdo(), dato));
@@ -34,19 +34,19 @@ public class ArbolBinarioBusqueda {
         return nodo;
     }
     
-    public Nodo buscar(Empleado dato) {
+    public Nodo buscar(Curso dato) {
         return buscar(raiz, dato);
     }
     
-    private Nodo buscar(Nodo nodo, Empleado dato) {
+    private Nodo buscar(Nodo nodo, Curso dato) {
         if (nodo == null) return null;
         else if (dato.compareTo(nodo.getDato()) < 0) return buscar(nodo.getIzdo(), dato);
         else if (dato.compareTo(nodo.getDato()) > 0) return buscar(nodo.getDcho(), dato);
         else return nodo;
     }
     
-    private void agregarFila(DefaultTableModel modelo, Empleado dato) {
-        Object[] fila = {dato.getCodigo(), dato.getNombres(), dato.getApellidos(), dato.getSexo(), dato.getSueldo()};
+    private void agregarFila(DefaultTableModel modelo, Curso dato) {
+        Object[] fila = {dato.getCodigo(), dato.getNombre(), dato.getCiclo(), dato.getCreditos(), dato.getCarrera()};
         modelo.addRow(fila);
     }
     
@@ -58,7 +58,7 @@ public class ArbolBinarioBusqueda {
     }
     
     public void preOrden(DefaultTableModel modelo) {
-        String titulos[] = {"CÓDIGO", "NOMBRE", "APELLIDOS", "SEXO", "SUELDO"};
+        String titulos[] = {"CÓDIGO", "NOMBRE", "CICLO", "CRÉDITOS", "CARRERA"};
         modelo.setColumnIdentifiers(titulos);
         limpiarTabla(modelo);
         preOrden(raiz, modelo);
@@ -73,7 +73,7 @@ public class ArbolBinarioBusqueda {
     }
     
     public void enOrden(DefaultTableModel modelo) {
-        String titulos[] = {"CÓDIGO", "NOMBRE", "APELLIDOS", "SEXO", "SUELDO"};
+        String titulos[] = {"CÓDIGO", "NOMBRE", "CICLO", "CRÉDITOS", "CARRERA"};
         modelo.setColumnIdentifiers(titulos);
         limpiarTabla(modelo);
         enOrden(raiz, modelo);
@@ -88,7 +88,7 @@ public class ArbolBinarioBusqueda {
     }
     
     public void postOrden(DefaultTableModel modelo) {
-        String titulos[] = {"CÓDIGO", "NOMBRE", "APELLIDOS", "SEXO", "SUELDO"};
+        String titulos[] = {"CÓDIGO", "NOMBRE", "CICLO", "CRÉDITOS", "CARRERA"};
         modelo.setColumnIdentifiers(titulos);
         limpiarTabla(modelo);
         postOrden(raiz, modelo);
@@ -102,23 +102,23 @@ public class ArbolBinarioBusqueda {
         }
     }
     
-    public Empleado buscarMax() {
+    public Curso buscarMax() {
         return buscarMax(raiz);
     }
     
-    private Empleado buscarMax(Nodo nodo) {
-        Empleado x;
+    private Curso buscarMax(Nodo nodo) {
+        Curso x;
         if (nodo.getDcho() == null) x = nodo.getDato();
         else x = buscarMax(nodo.getDcho());
         return x;
     }
     
-    public Empleado buscarMin() {
+    public Curso buscarMin() {
         return buscarMin(raiz);
     }
     
-    private Empleado buscarMin(Nodo nodo) {
-        Empleado x;
+    private Curso buscarMin(Nodo nodo) {
+        Curso x;
         if (nodo.getIzdo() == null) x = nodo.getDato();
         else x = buscarMin(nodo.getIzdo());
         return x;
@@ -143,11 +143,11 @@ public class ArbolBinarioBusqueda {
         return nodo;
     }
     
-    public void eliminar(Empleado dato) {
+    public void eliminar(Curso dato) {
         raiz = eliminar(raiz, dato);
     }
     
-    private Nodo eliminar(Nodo nodo, Empleado dato) {
+    private Nodo eliminar(Nodo nodo, Curso dato) {
         if (nodo == null) return null;
         else if (dato.compareTo(nodo.getDato()) < 0) nodo.setIzdo(eliminar(nodo.getIzdo(), dato));
         else if (dato.compareTo(nodo.getDato()) > 0) nodo.setDcho(eliminar(nodo.getDcho(), dato));
@@ -178,7 +178,7 @@ public class ArbolBinarioBusqueda {
         }
     }
     
-    public void modificar(Empleado viejo, Empleado nuevo) {
+    public void modificar(Curso viejo, Curso nuevo) {
         Nodo nodo = buscar(viejo);
         if (nodo != null) {
             nodo.setDato(nuevo);

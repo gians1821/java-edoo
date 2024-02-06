@@ -46,11 +46,10 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void imprimir(Nodo nodo) {
         txtCodigo.setText(nodo.getDato().getCodigo());
-        txtNombres.setText(nodo.getDato().getNombres());
-        txtApellidos.setText(nodo.getDato().getApellidos());
-        if (nodo.getDato().getSexo().equals("MASCULINO")) txtSexo.setSelectedIndex(0);
-        else txtSexo.setSelectedIndex(1);
-        txtSueldo.setText(String.valueOf(nodo.getDato().getSueldo()));
+        txtNombre.setText(nodo.getDato().getNombre());
+        txtCiclo.setText(nodo.getDato().getCiclo());
+        txtCreditos.setText(String.valueOf(nodo.getDato().getCreditos()));
+        txtCarrera.setText(String.valueOf(nodo.getDato().getCarrera()));
     }
 
     @SuppressWarnings("unchecked")
@@ -58,12 +57,12 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        txtSueldo = new javax.swing.JTextField();
+        txtCarrera = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
-        txtNombres = new javax.swing.JTextField();
-        txtApellidos = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtCiclo = new javax.swing.JTextField();
         btnMostrarPosorden = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         scroll1 = new javax.swing.JScrollPane();
@@ -72,17 +71,17 @@ public class MainFrame extends javax.swing.JFrame {
         btnMostrarPreorden = new javax.swing.JButton();
         btnMostrarEnorden = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        txtSexo = new javax.swing.JComboBox<>();
+        txtCreditos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bg.setPreferredSize(new java.awt.Dimension(950, 600));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtSueldo.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        txtSueldo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUELDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
-        txtSueldo.setPreferredSize(new java.awt.Dimension(200, 50));
-        bg.add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+        txtCarrera.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        txtCarrera.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CARRERA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
+        txtCarrera.setPreferredSize(new java.awt.Dimension(200, 50));
+        bg.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
         btnCancelar.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnCancelar.setText("CANCELAR");
@@ -109,15 +108,15 @@ public class MainFrame extends javax.swing.JFrame {
         txtCodigo.setPreferredSize(new java.awt.Dimension(200, 50));
         bg.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
-        txtNombres.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        txtNombres.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NOMBRES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
-        txtNombres.setPreferredSize(new java.awt.Dimension(200, 50));
-        bg.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        txtNombre.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NOMBRE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
+        txtNombre.setPreferredSize(new java.awt.Dimension(200, 50));
+        bg.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
 
-        txtApellidos.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        txtApellidos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "APELLIDOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
-        txtApellidos.setPreferredSize(new java.awt.Dimension(200, 50));
-        bg.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
+        txtCiclo.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        txtCiclo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CICLO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
+        txtCiclo.setPreferredSize(new java.awt.Dimension(200, 50));
+        bg.add(txtCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
 
         btnMostrarPosorden.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         btnMostrarPosorden.setText("Mostrar en Posorden");
@@ -188,11 +187,10 @@ public class MainFrame extends javax.swing.JFrame {
         });
         bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
 
-        txtSexo.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
-        txtSexo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEXO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
-        txtSexo.setPreferredSize(new java.awt.Dimension(200, 50));
-        bg.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        txtCreditos.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        txtCreditos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CRÉDITOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 0, 15))); // NOI18N
+        txtCreditos.setPreferredSize(new java.awt.Dimension(200, 50));
+        bg.add(txtCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
 
         getContentPane().add(bg, java.awt.BorderLayout.CENTER);
 
@@ -217,12 +215,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarPosordenActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        Control.modificar(arbol, txtCodigo.getText(), txtNombres.getText(), txtApellidos.getText(), txtSexo.getSelectedItem().toString(), txtSueldo.getText());
+        Control.modificar(arbol, txtCodigo.getText(), txtNombre.getText(), txtCiclo.getText(), txtCreditos.getText(), txtCarrera.getText());
         mostrar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Control.insertar(arbol, txtCodigo.getText(), txtNombres.getText(), txtApellidos.getText(), txtSexo.getSelectedItem().toString(), txtSueldo.getText());
+        Control.insertar(arbol, txtCodigo.getText(), txtNombre.getText(), txtCiclo.getText(), txtCreditos.getText(), txtCarrera.getText());
         mostrar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -237,7 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarEnordenActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Control.eliminar(arbol, txtCodigo.getText(), txtNombres.getText(), txtApellidos.getText(), txtSexo.getSelectedItem().toString(), txtSueldo.getText());
+        Control.eliminar(arbol, txtCodigo.getText(), txtNombre.getText(), txtCiclo.getText(), txtCreditos.getText(), txtCarrera.getText());
         mostrar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -253,10 +251,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarPreorden;
     private javax.swing.JScrollPane scroll1;
     private javax.swing.JTable table1;
-    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtCarrera;
+    private javax.swing.JTextField txtCiclo;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtNombres;
-    private javax.swing.JComboBox<String> txtSexo;
-    private javax.swing.JTextField txtSueldo;
+    private javax.swing.JTextField txtCreditos;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
