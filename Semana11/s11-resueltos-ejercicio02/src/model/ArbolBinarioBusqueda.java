@@ -26,13 +26,11 @@ public class ArbolBinarioBusqueda {
     }
     
     private Nodo insertar(Nodo nodo, Empleado dato) {
-        if (nodo == null) {
-            nodo = new Nodo(dato);
-        } else if (dato.compareTo(nodo.getDato()) < 0) {
+        if (nodo == null) nodo = new Nodo(dato);
+        else if (dato.compareTo(nodo.getDato()) < 0)
             nodo.setIzdo(insertar(nodo.getIzdo(), dato));
-        } else if (dato.compareTo(nodo.getDato()) > 0) {
+        else if (dato.compareTo(nodo.getDato()) > 0)
             nodo.setDcho(insertar(nodo.getDcho(), dato));
-        }
         return nodo;
     }
     
@@ -177,6 +175,13 @@ public class ArbolBinarioBusqueda {
             } else {
                 return alturaDcho;
             }
+        }
+    }
+    
+    public void modificar(Empleado viejo, Empleado nuevo) {
+        Nodo nodo = buscar(viejo);
+        if (nodo != null) {
+            nodo.setDato(nuevo);
         }
     }
     

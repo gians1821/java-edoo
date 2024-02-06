@@ -65,4 +65,14 @@ public class Empleado implements Comparable<Empleado> {
         return this.codigo.compareToIgnoreCase(t.getCodigo());
     }
     
+    public static void main(String[] args) {
+        Empleado empleadoA = new Empleado("a");
+        Empleado empleadoB = new Empleado("b");
+        Empleado empleadoC = new Empleado("c");
+        Empleado empleadoD = new Empleado("d");
+        
+        System.out.println(empleadoA.compareTo(empleadoB) < 0);
+        
+    }
+    
 }
