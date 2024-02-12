@@ -8,7 +8,6 @@ public class GrafoMatriz {
     public static final int MAX_VERTICES = 20;
     private Vertice[] vertices;
     private int[][] matrizAdyacencia;
-    private static final int CLAVE = 1;
 
     public GrafoMatriz() {
         this(MAX_VERTICES);
@@ -61,6 +60,18 @@ public class GrafoMatriz {
             if (!encontrado) i++ ;
         }
         return (i < numeroVertices) ? i : -1 ;
+    }
+    
+    public String nombreVertice(int numeroVertice) {
+        return vertices[numeroVertice].getNombre();
+    }
+    
+    public Vertice getVertice(String nombre) {
+        return vertices[numeroVertice(nombre)];
+    }
+    
+    public Vertice getVertice(int numero) {
+        return vertices[numero];
     }
     
     public void nuevoArco(String a, String b) throws Exception {
@@ -119,64 +130,70 @@ public class GrafoMatriz {
         return adyacentes;
     }
     
-    public static int[] recorrerAnchura(GrafoMatriz grafo, String vertice) throws Exception {
+    public static ArrayList<Vertice> recorrerAnchura(GrafoMatriz grafo, String vertice) throws Exception {
         int w, v;
-        int[] m;
+        boolean[] m;
+        ArrayList<Vertice> recorrido = new ArrayList<>();
         v = grafo.numeroVertice(vertice);
-        if (v < 0)
-            throw new Exception("Vértice origen no existe");
+        if (v < 0) throw new Exception("Vértice origen no existe");
         Cola cola = new Cola();
-        m = new int[grafo.getNumeroVertices()];
+        m = new boolean[grafo.getNumeroVertices()];
         // inicializa los vértices como no marcados
         for (int i = 0; i < grafo.getNumeroVertices(); i++) {
-            m[i] = CLAVE;
+            m[i] = false;
         }
-        m[v] = 0; // vértice origen queda marcado
+        m[v] = true; // vértice origen queda marcado
         cola.encolar(v);
         while (!cola.empty()) {
             Integer cw;
             cw = (Integer) cola.desencolar();
+            if (m[cw] == true && !recorrido.contains(grafo.getVertice(cw))) 
+                recorrido.add(grafo.getVertice(cw));
             w = cw;
             System.out.println("Vértice " + grafo.vertices[w] + "visitado");
             // inserta en la cola los adyacentes de w no marcados
             for (int u = 0; u < grafo.getNumeroVertices(); u++) {
-                if ((grafo.matrizAdyacencia[w][u] == 1) && (m[u] == CLAVE)) {
+                if ((grafo.matrizAdyacencia[w][u] == 1) && (m[u] == false)) {
                     // se marca vertice u con número de arcos hasta el
-                    m[u] = m[w] + 1;
+                    m[u] = true;
                     cola.encolar(u);
                 }
             }
         }
-        return m;
+        return recorrido;
     }
     
-    public static int[] recorrerProfundidad(GrafoMatriz grafo, String vertice) throws Exception {
+    public static ArrayList<Vertice> recorrerProfundidad(GrafoMatriz grafo, String vertice) throws Exception {
         int w, v;
-        int[] m;
+        boolean[] m;
+        ArrayList<Vertice> recorrido = new ArrayList<>();
         v = grafo.numeroVertice(vertice);
-        if (v < 0)
-            throw new Exception("Vértice origen no existe");
+        if (v < 0) throw new Exception("Vértice origen no existe");
         Pila pila = new Pila();
-        m = new int[grafo.getNumeroVertices()];
+        m = new boolean[grafo.getNumeroVertices()];
         // inicializa los vértices como no marcados
         for (int i = 0; i < grafo.getNumeroVertices(); i++) {
-            m[i] = CLAVE;
+            m[i] = false;
         }
-        m[v] = 0; // vértice origen queda marcado
+        m[v] = true; // vértice origen queda marcado
         pila.push(v);
         while (!pila.empty()) {
             Integer cw;
             cw = (Integer) pila.pop();
+            if (m[cw] == true && !recorrido.contains(grafo.getVertice(cw))) 
+                recorrido.add(grafo.getVertice(cw));
             w = cw;
             System.out.println("Vértice " + grafo.vertices[w] + "visitado");
+            // inserta en la cola los adyacentes de w no marcados
             for (int u = 0; u < grafo.getNumeroVertices(); u++) {
-                if ((grafo.matrizAdyacencia[w][u] == 1) && (m[u] == CLAVE)) {
-                    m[u] = m[w] + 1;
+                if ((grafo.matrizAdyacencia[w][u] == 1) && (m[u] == false)) {
+                    // se marca vertice u con número de arcos hasta el
+                    m[u] = true;
                     pila.push(u);
                 }
             }
         }
-        return m;
+        return recorrido;
     }
     
     
