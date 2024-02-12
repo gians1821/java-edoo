@@ -1,10 +1,12 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Grafo {
     
-    private static final int CLAVE = 1;
+    private static final int CLAVE = 5;
 
     private int numeroVertices;
     private Vertice[] tablaAdyacencia;
@@ -61,12 +63,17 @@ public class Grafo {
         return tablaAdyacencia[numeroVertice].getNombre();
     }
     
+    public Vertice getVertice(int numero) {
+        return tablaAdyacencia[numero];
+    }
+    
     public void nuevoArco(String a, String b) throws Exception {
         int va, vb;
         va = numeroVertice(a);
         vb = numeroVertice(b);
         if (va < 0 || vb < 0) throw new Exception("Vértice no existe");
-        tablaAdyacencia[va].añadirArco(new Arco(vb, 1));
+        if (!tablaAdyacencia[va].existeArco(vb))
+            tablaAdyacencia[va].añadirArco(new Arco(vb, 1));
     }
     
     public boolean sonAdyacentes(String a, String b) throws Exception {
@@ -107,72 +114,91 @@ public class Grafo {
     public ArrayList<Vertice> getAdyacentes(Vertice vertice) {
         ArrayList<Vertice> adyacentes = new ArrayList<>();
         Vertice verticeEncontrado = tablaAdyacencia[numeroVertice(vertice.getNombre())];
-        ArrayList<Nodo> nodosAdyacentes = verticeEncontrado.getListaAdyacencia();
-        for (Nodo nodo : nodosAdyacentes) {
-            Arco arco = (Arco) nodo.getInfo();
-            adyacentes.add(tablaAdyacencia[arco.getDestino()]);
+        ArrayList<Arco> arcos = verticeEncontrado.getArcos();
+        for (Arco a : arcos) {
+            adyacentes.add(tablaAdyacencia[a.getDestino()]);
         }
         return adyacentes;
     }
     
-    public static int[] recorrerAnchura(Grafo grafo, String vertice) throws Exception {
-        int w, v;
-        int[] m;
-        v = grafo.numeroVertice(vertice);
-        if (v < 0)
-            throw new Exception("Vértice origen no existe");
+    public static ArrayList<Vertice> recorrerAnchura(Grafo grafo, String vertice) throws Exception {
+        int v, w;
         Cola cola = new Cola();
+        int[] m;
+        ArrayList<Vertice> recorrido = new ArrayList<>();
         m = new int[grafo.getNumeroVertices()];
         // inicializa los vértices como no marcados
+        v = grafo.numeroVertice(vertice);
+        if (v < 0) throw new Exception("Vértice origen no existe");
         for (int i = 0; i < grafo.getNumeroVertices(); i++) {
             m[i] = CLAVE;
         }
-        m[v] = 0; // vértice origen queda marcado
+        m[v] = 1; // vértice origen queda marcado
         cola.encolar(v);
         while (!cola.empty()) {
             Integer cw;
             cw = (Integer) cola.desencolar();
+            if (m[cw] == 1 && !recorrido.contains(grafo.getVertice(cw))) 
+                recorrido.add(grafo.getVertice(cw));
             w = cw;
-            System.out.println("Vértice " + grafo.tablaAdyacencia[w] + "visitado");
-            // inserta en la cola los adyacentes de w no marcados
-            for (int u = 0; u < grafo.getNumeroVertices(); u++) {
-                if ((grafo.sonAdyacentes(w, u)) && (m[u] == CLAVE)) {
-                    // se marca vertice u con número de arcos hasta el
-                    m[u] = m[w] + 1;
-                    cola.encolar(u);
+            // inserta en la pila los adyacentes de w no marcados
+            // recorre la lista con un iterador
+            ArrayList<Arco> arcos = grafo.tablaAdyacencia[w].getArcos();
+            Arco ck;
+            for (Arco a : arcos) {
+                int k;
+                ck = a;
+                if (ck != null) {
+                    k = ck.getDestino(); // vértice adyacente
+                    if (m[k] == CLAVE) {
+                        cola.encolar(k);
+                        m[k] = 1;
+                        // vértice queda marcado
+                    }
                 }
             }
         }
-        return m;
+        return recorrido;
     }
     
-    public static int[] recorrerProfundidad(Grafo grafo, String vertice) throws Exception {
-        int w, v;
-        int[] m;
-        v = grafo.numeroVertice(vertice);
-        if (v < 0)
-            throw new Exception("Vértice origen no existe");
+    public static ArrayList<Vertice> recorrerProfundidad(Grafo grafo, String vertice) throws Exception {
+        int v, w;
         Pila pila = new Pila();
+        int[] m;
+        ArrayList<Vertice> recorrido = new ArrayList<>();
         m = new int[grafo.getNumeroVertices()];
         // inicializa los vértices como no marcados
+        v = grafo.numeroVertice(vertice);
+        if (v < 0) throw new Exception("Vértice origen no existe");
         for (int i = 0; i < grafo.getNumeroVertices(); i++) {
             m[i] = CLAVE;
         }
-        m[v] = 0; // vértice origen queda marcado
+        m[v] = 1; // vértice origen queda marcado
         pila.push(v);
         while (!pila.empty()) {
             Integer cw;
             cw = (Integer) pila.pop();
+            if (m[cw] == 1 && !recorrido.contains(grafo.getVertice(cw))) 
+                recorrido.add(grafo.getVertice(cw));
             w = cw;
-            System.out.println("Vértice " + grafo.tablaAdyacencia[w] + "visitado");
-            for (int u = 0; u < grafo.getNumeroVertices(); u++) {
-                if ((grafo.matrizAdyacencia[w][u] == 1) && (m[u] == CLAVE)) {
-                    m[u] = m[w] + 1;
-                    pila.push(u);
+            // inserta en la pila los adyacentes de w no marcados
+            // recorre la lista con un iterador
+            ArrayList<Arco> arcos = grafo.tablaAdyacencia[w].getArcos();
+            Arco ck;
+            for (Arco a : arcos) {
+                int k;
+                ck = a;
+                if (ck != null) {
+                    k = ck.getDestino(); // vértice adyacente
+                    if (m[k] == CLAVE) {
+                        pila.push(k);
+                        m[k] = 1;
+                        // vértice queda marcado
+                    }
                 }
             }
         }
-        return m;
+        return recorrido;
     }
     
     

@@ -46,7 +46,12 @@ public class Control {
     
     public static void mostrarAnchura(Grafo grafo, String vertice) {
         try {
-            Grafo.recorrerAnchura(grafo, vertice);
+            ArrayList<Vertice> recorrido = Grafo.recorrerAnchura(grafo, vertice);
+            String strRecorrido = "";
+            for (Vertice v : recorrido) {
+                strRecorrido += v + "\n";
+            }
+            MessageController.showInfoMessage("El recorrido en anchura es:\n" + strRecorrido);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -54,7 +59,12 @@ public class Control {
     
     public static void mostrarProfundidad(Grafo grafo, String vertice) {
         try {
-            Grafo.recorrerProfundidad(grafo, vertice);
+            ArrayList<Vertice> recorrido = Grafo.recorrerProfundidad(grafo, vertice);
+            String strRecorrido = "";
+            for (Vertice v : recorrido) {
+                strRecorrido += v + "\n";
+            }
+            MessageController.showInfoMessage("El recorrido en profundidad es:\n" + strRecorrido);
         } catch (Exception e) {
             System.out.println(e);
         }

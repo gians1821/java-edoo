@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Vertice {
     
@@ -45,7 +46,36 @@ public class Vertice {
     public boolean esAdyacente(Arco arco) {
         return listaAdyacencia.contains(new Nodo(arco));
     }
+    
+    public ArrayList<Integer> getVerticesAdyacentes() {
+        ArrayList<Integer> destinos = new ArrayList<>();
+        for (int i = 0; i < listaAdyacencia.size(); i++) {
+            Nodo nodo = listaAdyacencia.get(i);
+            Arco arco = (Arco) nodo.getInfo();
+            destinos.add(arco.getDestino());
+        }
+        return destinos;
+    }
+    
+    public ArrayList<Arco> getArcos() {
+        ArrayList<Arco> arcos = new ArrayList<>();
+        for (int i = 0; i < listaAdyacencia.size(); i++) {
+            Nodo nodo = listaAdyacencia.get(i);
+            Arco arco = (Arco) nodo.getInfo();
+            arcos.add(arco);
+        }
+        Collections.sort(arcos);
+        return arcos;
+    }
 
+    public boolean existeArco(int destino) {
+        for (Nodo nodo : listaAdyacencia) {
+            Arco arco = (Arco) nodo.getInfo();
+            if (destino == arco.getDestino()) return true;
+        }
+        return false;
+    }
+    
     @Override
     public String toString() {
         return "Vertice{" + "nombre=" + nombre + ", numVertice=" + numVertice + '}';

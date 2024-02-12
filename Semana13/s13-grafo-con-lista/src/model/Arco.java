@@ -1,6 +1,6 @@
 package model;
 
-public class Arco {
+public class Arco implements Comparable<Arco> {
     
     int destino;
     double peso;
@@ -33,6 +33,11 @@ public class Arco {
     public boolean equals(Object n) {
         Arco a = (Arco) n;
         return destino == a.destino;
+    }
+
+    @Override
+    public int compareTo(Arco t) {
+        return destino - t.getDestino();
     }
     
 }
